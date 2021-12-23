@@ -1,0 +1,184 @@
+<ng-template #ConfrimChooseDialog>
+  <div mat-dialog-content>
+    <div class="body" style="height: 50%;">
+      <h2 style="color: blue;">Are You Sure To choose this Order To deliver it?</h2>
+      <button  class="btn btn-outline-info btn-oblong tx-11 tx-uppercase tx-mont tx-medium tx-spacing-1 pd-x-30 bd-2">Ok</button>
+
+    </div> 
+  </div>
+  </ng-template>
+<ng-template #callCreateDialog>
+  <div mat-dialog-content>
+    <div class="body" style="height: 50%;">
+     <h4><b> 1.</b> Choose the order's city which it same you from.</h4>
+     <h4><b>2.</b> When click to "details" button can you see all info of order.</h4>
+      <h4><b>3.</b> Click to "choose" button when you would to deliver this order just .</h4>
+<a  class="btn btn-outline-info btn-oblong tx-11 tx-uppercase tx-mont tx-medium tx-spacing-1 pd-x-30 bd-2">Ok</a>
+    </div> 
+  </div>
+</ng-template>
+<ng-template #callGetOrdersDialog>
+  <div mat-dialog-content>
+    <div class="body" style="height: 50%;">
+
+      <table class="table table-valign-middle">
+        <thead>
+          <th>
+            Cafe Name
+          </th>
+          <th>
+            Item Name
+          </th>
+          <th>
+            Quantity
+          </th>
+          <th>
+            price
+          </th>
+          <th>
+            Cafe Phone Number</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of delService.orderItems">
+            <td class="pd-l-0-force">
+              {{item.firstName}} {{item.laststName}}
+            </td>
+            <td>
+              {{item.itemName}}
+            </td>
+            <td>
+                {{item.quantity}}    
+            </td>
+            <td>
+            {{item.price}}  
+            </td>
+            <td>
+              {{item.phonNumber}}
+            </td>
+           
+           
+          </tr>
+        
+          
+        </tbody>
+      </table>
+</div> 
+</div>
+</ng-template>
+<app-delivery-siderbar></app-delivery-siderbar>
+<app-delivery-header></app-delivery-header>
+
+
+<div class="br-mainpanel" >
+ 
+  <div class="br-pagebody mg-t-5 pd-x-30" >
+<div class="row row-sm mg-t-20">
+  <div class="col-8">
+        <div class="card bd-0 shadow-base pd-30 mg-t-20">
+          <div class="d-flex align-items-center justify-content-between mg-b-30">
+            <div>
+              <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">You Deliver Orders:</h6>
+            </div>
+          </div><!-- d-flex -->
+        
+          <table class="table table-valign-middle mg-b-0">
+            <thead>
+              <th>
+                Order Id
+              </th>
+              <th>
+                Customer Name
+              </th>
+              <th>
+                PhoneNumber
+              </th>
+              <th>
+                Order City
+              </th>
+            
+            
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of delService.DeliveredOrders">
+                <td class="pd-l-0-force">
+                  {{item.orderId}}
+                </td>
+                <td>
+                  {{item.firstName}}  {{item.lastName}}
+                </td>
+                <td>
+                  {{item.phonNumber}}  
+                </td>
+                <td>
+                  {{item.city}}    
+                </td>
+                
+         
+              </tr>
+            
+              
+            </tbody>
+          </table>
+        </div>
+      
+  </div>
+  </div> 
+  <footer class="br-footer">
+    <div class="footer-left">
+      <div class="mg-b-2">Copyright &copy; 2017. Bracket. All Rights Reserved.</div>
+      <div>Attentively and carefully made by ThemePixels.</div>
+    </div>
+    <div class="footer-right d-flex align-items-center">
+      <span class="tx-uppercase mg-r-10">Share:</span>
+      <a target="_blank" class="pd-x-5" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//themepixels.me/bracket/intro"><i class="fa fa-facebook tx-20"></i></a>
+      <a target="_blank" class="pd-x-5" href="https://twitter.com/home?status=Bracket,%20your%20best%20choice%20for%20premium%20quality%20admin%20template%20from%20Bootstrap.%20Get%20it%20now%20at%20http%3A//themepixels.me/bracket/intro"><i class="fa fa-twitter tx-20"></i></a>
+    </div>
+  </footer>
+   
+ 
+
+<script src="../../../assets/assets/lib/jquery/jquery.js"></script>
+<script src="../../../assets/assets/lib/popper.js/popper.js"></script>
+<script src="../../../assets/assets/lib/bootstrap/bootstrap.js"></script>
+<script src="../../../assets/assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="../../../assets/assets/lib/moment/moment.js"></script>
+<script src="../../../assets/assets/lib/jquery-ui/jquery-ui.js"></script>
+<script src="../../../assets/assets/lib/jquery-switchbutton/jquery.switchButton.js"></script>
+<script src="../../../assets/assets/lib/peity/jquery.peity.js"></script>
+<script src="../../../assets/assets/lib/chartist/chartist.js"></script>
+<script src="../../../assets/assets/lib/jquery.sparkline.bower/jquery.sparkline.min.js"></script>
+<script src="../../../assets/assets/lib/d3/d3.js"></script>
+<script src="../../../assets/assets/lib/rickshaw/rickshaw.min.js"></script>
+
+
+<script src="../../../assets/assets/js/bracket.js"></script>
+<script src="../../../assets/assets/js/ResizeSensor.js"></script>
+<script src="../../../assets/assets/js/dashboard.js"></script>
+<script>
+  $(function(){
+    'use strict'
+
+    // FOR DEMO ONLY
+    // menu collapsed by default during first page load or refresh with screen
+    // having a size between 992px and 1299px. This is intended on this page only
+    // for better viewing of widgets demo.
+    $(window).resize(function(){
+      minimizeMenu();
+    });
+
+    minimizeMenu();
+
+    function minimizeMenu() {
+      if(window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
+        // show only the icons and hide left menu label by default
+        $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+        $('body').addClass('collapsed-menu');
+        $('.show-sub + .br-menu-sub').slideUp();
+      } else if(window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
+        $('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
+        $('body').removeClass('collapsed-menu');
+        $('.show-sub + .br-menu-sub').slideDown();
+      }
+    }
+  });
+</script>

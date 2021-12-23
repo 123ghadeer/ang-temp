@@ -1,0 +1,78 @@
+<ng-template #callAPIDialog>
+    <div mat-dialog-content> 
+
+<td colspan="1">
+    <form #UpdateTrainer="ngForm" (ngSubmit)="updateTrainer(UpdateTrainer.value); UpdateTrainer.resetForm()" class="well form-horizontal">
+        <h2>EDIT INFO </h2>
+       <fieldset>
+          <div class="form-group">
+             <div class="col-md-8 inputGroupContainer">
+                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input  required  type="hidden"  matInput name="UserId" [(ngModel)]="UserId"   class="form-control" ></div>
+             </div>
+          </div>
+          <div class="form-group">
+             <div class="col-md-8 inputGroupContainer">
+                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input required type="text"  matInput name="FirstName" [(ngModel)]="FirstName"   placeholder="First Name" class="form-control" >
+                    <!-- <span *ngIf="FirstName['invalid'] && FirstName['touched']">FirstName is required</span> -->
+                </div>
+             </div>
+          </div>
+          <div class="form-group">
+             <div class="col-md-8 inputGroupContainer">
+                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input required type="text"  matInput name="UserName" [(ngModel)]="UserName" placeholder="Last Name" class="form-control"  >
+                    <!-- <span *ngIf="UserName.invalid && UserName.touched">User Name is required</span> -->
+                </div>
+             </div>
+          </div>
+          <div class="form-group">
+             <div class="col-md-8 inputGroupContainer">
+                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input  required type="email"  matInput name="Email" [(ngModel)]="Email" placeholder="email" class="form-control" >
+                    <!-- <span *ngIf="Email.invalid && Email.touched">email is required</span> -->
+                </div>
+             </div>
+          </div>
+          <div class="form-group">
+             <div class="col-md-8 inputGroupContainer">
+                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input required type="text"   matInput name="PhonNumber" [(ngModel)]="PhonNumber" placeholder="Phone Number" class="form-control"  >
+                    <!-- <span *ngIf="PhonNumber.invalid && PhonNumber.touched">Phone is required</span>   -->
+
+                   </div>
+             </div>
+          </div>
+          <div class="form-group">
+             <div class="col-md-8 inputGroupContainer">
+               
+             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input required type="text"   matInput name="City" [(ngModel)]="City" placeholder="Address" class="form-control"  >
+                <!-- <span *ngIf="City.invalid && City.touched">Address is required</span>   -->
+            </div>
+    
+
+                
+          </div>
+          </div>
+          <div class="form-group">
+             <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                   <span class="input-group-addon" style="max-width: 100%;"><i class="glyphicon glyphicon-list"></i></span>
+                   <select class="selectpicker form-control">
+                      <option>A really long option to push the menu over the edget</option>
+                   </select>
+                </div>
+             </div>
+          </div>
+          <div class="form-group">
+             <div class="col-md-8 inputGroupContainer">
+                <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input required type="password"   matInput name="PassWord" [(ngModel)]="PassWord" placeholder="password" class="form-control"  >
+                    <!-- <span *ngIf="PassWord['invalid'] && PassWord['touched']">password is required</span>   -->
+                </div>
+             </div>
+          </div>
+            <button class="btn btn-primary" matDialogClose="yes">Cancel</button>
+            <button  class="btn btn-success btn-jittery" matDialogClose="no" type="submit">Update </button>
+          
+       </fieldset>
+      
+    </form>
+ </td>
+    </div>
+</ng-template>

@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { CustomerRoutingModule } from './customer-routing.module';
 import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ProfileComponent
   ],
   imports: [
     CommonModule,
-    CustomerRoutingModule
+    CustomerRoutingModule,
+    SharedModule
   ]
 })
 export class CustomerModule { }

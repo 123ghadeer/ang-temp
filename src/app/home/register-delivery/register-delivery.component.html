@@ -1,0 +1,149 @@
+<app-headercafe></app-headercafe>
+<main style="padding-top: 160px;">
+    <section>
+        <div class="block">
+            <div class="fixed-bg" style="background-image: url(assets/images/topbg.jpg);"></div>
+            <div class="page-title-wrapper text-center">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="page-title-inner">
+                        <h1 itemprop="headline">Delivery Reservation</h1>
+                            <span>A Greate Cafes Website</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<div class="bread-crumbs-wrapper" style="padding-top: 40px;">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/home/home/" title="" itemprop="url">Home</a></li>
+            <li class="breadcrumb-item active">Register Reservation</li>
+        </ol>
+    </div>
+</div>
+<section>
+    <div class="block top-padd30 gray-bg">
+        
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-lg-12">
+                        <div class="sec-box">
+                        <div class="reservation-tabs-wrapper">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-12 col-lg-3">
+                                    <div class="reservation-tabs-list brd-rd5">
+                                          <div class="register-tab nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                            <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><a href="#reservation-tab1" data-toggle="tab">
+                                                <span class="brd-rd50">1</span> Information</a></button>
+                                            <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><a href="#reservation-tab2" data-toggle="tab">
+                                                    <span class="brd-rd50">2</span> Select Package
+                                                </a></button>
+                                            <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false"><a href="#reservation-tab3" data-toggle="tab"><span class="brd-rd50">3</span> Payment Information</a></button>
+                                            <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false"><a href="#reservation-tab4" data-toggle="tab"><span class="brd-rd50">4</span> Activation</a></button>
+                                          </div>
+                                      
+                                    </div>
+                                </div>
+                                <div class="col-md-9 col-sm-12 col-lg-9">
+                                    <div class="reservation-tab-content">
+                                       <div class="tab-content" id="v-pills-tabContent">
+                                             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                 <form #registerForm="ngForm" (ngSubmit)="submit(registerForm.value)" id="register" class="restaurant-info-form brd-rd5">
+                                                    <div class="row mrg20">
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Deliver  Name <sup>*</sup></label>
+                                                            <input required type="text" #deliveryName="ngModel" matInput name="deliveryName" ngModel   placeholder="enter your Name" class="brd-rd3"  >
+                                                            <span *ngIf="deliveryName.invalid && deliveryName.touched">deliver name is required</span>
+
+
+                                                        </div>                                                  
+                                                         <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Deliver Phone Number <sup>*</sup></label>
+                                                            <input required type="text" #phoneNumber="ngModel" matInput name="phoneNumber" ngModel  placeholder="enter your Phone Number" class="brd-rd3" type="text" >
+                                                                <span *ngIf="phoneNumber.invalid && phoneNumber.touched"> phone number is required</span>
+
+                                                        </div> 
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Deliver Age <sup>*</sup></label>
+                                                            <input required type="number" #age="ngModel" matInput name="age" ngModel  placeholder="enter your Age" class="brd-rd3"  >
+                                                            <span *ngIf="age.invalid && age.touched">age  is required</span>
+
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Deliver Email <sup>*</sup></label>
+                                                            <input required type="text" #email="ngModel" matInput name="email" ngModel  placeholder="enter your Email" class="brd-rd3"  >
+                                                            <span *ngIf="email.invalid && email.touched">emailis required</span>
+
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Deliver Address <sup>*</sup></label>
+                                                           
+                                                            <input required type="text" #city="ngModel" matInput name="city" ngModel  placeholder="enter your Address" class="brd-rd3"  >
+                                                            <span *ngIf="city.invalid && city.touched">address is required</span>
+
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Deliver Car Type <sup>*</sup></label>
+                                                            <input required type="text" #carType="ngModel" matInput name="carType" ngModel  placeholder="enter your Car Type" class="brd-rd3"  >
+                                                            <span *ngIf="carType.invalid && carType.touched">carTypeis required</span>
+
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Deliver Car Deltails <sup>*</sup></label>
+                                                            <input required type="text" #deitaliesCar="ngModel" matInput name="deitaliesCar" ngModel  placeholder="enter your Car Details" class="brd-rd3" type="text" >
+                                                            <span *ngIf="deitaliesCar.invalid && deitaliesCar.touched">deitaliesCaris required</span>
+
+                                                        </div>
+
+                                                        <app-deliver-upload (onUploadFinished)="uploadFinished($event)"></app-deliver-upload>
+
+                                                        
+                                                        <br>
+                                                       
+                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                            <h4 itemprop="headline">SIGNUP FIELDS</h4>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>Username <sup>*</sup></label>
+                                                            <input required type="text" #username="ngModel" matInput name="username" ngModel  placeholder="enter your Username" class="brd-rd3" type="text" >
+                                                            <span *ngIf="username.invalid && username.touched">username is required</span>
+
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                                            <label>password <sup>*</sup></label>
+                                                            <input required type="text" #password="ngModel" matInput name="password" ngModel  placeholder="enter your password" class="brd-rd3" type="password" >
+                                                            <span *ngIf="password.invalid && password.touched">password is required</span>
+
+                                                        </div>
+                                                        <br>
+                                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                                            <div class="check-box">
+                                                                <input type="checkbox" id="agrement">
+                                                                <label for="agrement">Accept Terms and conditions</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-12 col-lg-12">
+                                                        <button class="red-bg brd-rd3"   type="submit">REGISTER NOW</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                              
+                                            </div>
+                                          
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div><!-- Section Box -->
+                    </div>
+                </div>
+            </div>
+        
+</section>
+</main>
+
+<app-footercafe></app-footercafe>

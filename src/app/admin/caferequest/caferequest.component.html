@@ -1,0 +1,108 @@
+
+
+
+<app-admin-header></app-admin-header>
+<app-admin-slidbar></app-admin-slidbar>
+<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container profile-page">
+    <div class="row">
+        <div class="col-xl-6 col-lg-7 col-md-12">
+            <div class="card profile-header">
+                <div class="body">
+                    <div  class="row"   *ngFor="let item of admin.caferequest " >
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="profile-image float-md-right"> <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""> </div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-12">
+                            <h4 class="m-t-0 m-b-0"><strong> Cafa Name :{{item.cafeName}}</strong> Deo</h4>
+                            <span class="job_post"> Cafe Addres{{item.city}}</span>
+                            <p> Phone: {{item.phoneNumber}}</p>
+                            <p> Email: {{item.email}}</p>
+
+                            <div>
+                                <button class="btn btn-primary btn-round">Accepet</button>
+                                <button class="btn btn-primary btn-round btn-simple">Reject</button>
+                            </div>
+                            <p class="social-icon m-t-5 m-b-0">
+                                <a title="Twitter" href="javascript:void(0);"><i class="fa fa-twitter"></i></a>
+                                <a title="Facebook" href="javascript:void(0);"><i class="fa fa-facebook"></i></a>
+                                <a title="Google-plus" href="javascript:void(0);"><i class="fa fa-twitter"></i></a>
+                                <a title="Behance" href="javascript:void(0);"><i class="fa fa-behance"></i></a>
+                                <a title="Instagram" href="javascript:void(0);"><i class="fa fa-instagram "></i></a>
+                            </p>
+                        </div>    
+                    </div>            
+                    </div>
+                </div>                    
+            </div>
+        </div>
+         -->
+        
+    
+            
+
+            <div class="container py-5 h-100">
+              <div class="br-mainpanel">
+                <div class="br-pageheader pd-y-15 pd-l-20">
+                  <nav class="breadcrumb pd-0 mg-0 tx-12">
+                    <a class="breadcrumb-item" href="index.html">Admin</a>
+                    <a class="breadcrumb-item" href="#">Request</a>
+                    <span class="breadcrumb-item active">Cafe Request</span>
+                  </nav>
+               
+          
+               
+                <div class="br-pagebody">
+                  <div class="br-section-wrapper">
+                    <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Cafes Request List</h6>
+                    <p class="mg-b-25 mg-lg-b-50">Searching, ordering and paging goodness will be immediately added to the table, as shown in this example.</p>
+                   
+
+            
+
+
+                <div class="tab1cards">
+                  <div class="card" *ngFor="let item of admin.caferequest ">
+                    <div class="mt-3 mb-4">
+                      
+                      <img
+                      [src]="createImgPath(item.img)" alt="profile picture" style="width: 100px; height:100px;"
+
+                       class="rounded-circle img-fluid" style="width: 100px;"
+                     />                     
+                    </div>
+                    <h4 class="mb-2"> Cafe Name : {{item.cafeName}} </h4>
+                  <p class="text-muted mb-4">{{item.city}} <span class="mx-2">|</span> <a >{{item.phoneNumber}}</a></p>
+                  <div class="text-muted mb-4">
+                   <p> Email: {{item.email}}</p>
+
+                    
+                  </div>
+                  <button (click)="openDeleteDialog(item.cafeRequestId)" type="button" class="btn btn-danger btn-rounded btn-lg">Rejeact</button>
+                  <button (click)="openconfarimDialog(item.cafeRequestId)" type="button" class="btn btn-success btn-rounded btn-lg"> Accepet</button>
+                   
+
+                  </div>
+                  
+                </div>
+
+
+
+   
+                <ng-template #callConfirmDeleteDialog>
+                  <h2 matDialogTitle>Are You Sure You Want to Delete This Request ?</h2>
+                  <mat-dialog-actions >
+                      <button  class="btn btn-primary" mat-button matDialogClose="no">Cancel</button>
+                      <button class="btn btn-danger" mat-button matDialogClose="yes">Delete</button>
+                  </mat-dialog-actions>
+                </ng-template>
+                
+
+                <ng-template #callAPIDialog>
+                  <h2 matDialogTitle>Are You Sure You Want to Comfirm This Request ?</h2>
+                  <mat-dialog-actions >
+                      <button  class="btn btn-primary" mat-button matDialogClose="no">Cancel</button>
+                      <button class="btn btn-danger" mat-button matDialogClose="yes">Comfirm</button>
+                  </mat-dialog-actions>
+                </ng-template>
+          

@@ -5,8 +5,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
-  }
+  transform(value: string, ...args: unknown[]): unknown {
+    const data=new Date(value);
+    //day //month//year 
+    const fM=`${data.getDate()}/${data.getMonth()+1}/${data.getFullYear()}`;
+    return fM;  }
+  
 
 }

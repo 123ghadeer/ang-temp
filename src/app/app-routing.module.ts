@@ -5,11 +5,23 @@ import { AdminModule } from './admin/admin.module';
 import { CafesModule } from './cafes/cafes.module';
 import { CustomerModule } from './customer/customer.module';
 import { DeliveryModule } from './delivery/delivery.module';
+import { HomeModule } from './home/home.module';
+import { LogindialogComponent } from './logindialog/logindialog.component';
+import { RegisterdialogComponent } from './registerdialog/registerdialog.component';
 
 const routes: Routes = [
 
 {
-  path:'',loadChildren:() =>CustomerModule
+  path:'',loadChildren:() =>HomeModule
+},
+{
+  path:'home',loadChildren:() =>HomeModule
+},
+{
+  path:'login',loadChildren:() =>LogindialogComponent
+},
+{
+  path:'register',loadChildren:() =>RegisterdialogComponent
 },
 {
   path: 'customer',loadChildren:()=>CustomerModule
@@ -21,7 +33,7 @@ const routes: Routes = [
   path: 'cafe',loadChildren:()=>CafesModule
 },
 {
-  path:'account',loadChildren:()=>AccoutantModule
+  path:'account',loadChildren:()=>import('./accoutant/accoutant-routing.module').then (m=>m.AccoutantRoutingModule)
 },
 {
   path:'delivery',loadChildren:()=>DeliveryModule

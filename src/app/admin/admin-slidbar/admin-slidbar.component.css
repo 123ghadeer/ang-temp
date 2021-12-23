@@ -1,0 +1,29 @@
+@import url('https://fonts.gstatic.com/');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap');
+@import url('../../../assets/assets/css/bracket.css');
+
+@import url('../../../assets/assets/lib/font-awesome/css/font-awesome.css');
+@import url('../../../assets/assets/lib/Ionicons/css/ionicons.css');
+@import url('../../../assets/assets//lib/perfect-scrollbar/css/perfect-scrollbar.css');
+@import url('../../../assets/assets/lib/Ionicons/css/ionicons.css');
+@import url('../../../assets/assets/lib/font-awesome/css/font-awesome.css');
+
+
+.br-menu-link[_ngcontent-eld-c50] {
+    color: #adb5bd;
+    display: block;
+    font-size: 14px;
+    border-radius: 2px;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu-item-label[_ngcontent-eld-c50] {
+    white-space: nowrap;
+    margin-left: 10
+px
+;
+    margin-right: auto;
+    color: #adb5bd;
+}

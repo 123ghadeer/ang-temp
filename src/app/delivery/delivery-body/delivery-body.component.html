@@ -1,0 +1,308 @@
+<ng-template #ConfrimChooseDialog>
+  <div mat-dialog-content>
+    <div class="body" style="height: 50%;">
+      <h2 style="color: blue;">Are You Sure To choose this Order To deliver it?</h2>
+      <button  class="btn btn-outline-info btn-oblong tx-11 tx-uppercase tx-mont tx-medium tx-spacing-1 pd-x-30 bd-2">Ok</button>
+
+    </div> 
+  </div>
+  </ng-template>
+<ng-template #callCreateDialog>
+  <div mat-dialog-content>
+    <div class="body" style="height: 50%;">
+     <h4><b> 1.</b> Choose the order's city which it same you from.</h4>
+     <h4><b>2.</b> When click to "details" button can you see all info of order.</h4>
+      <h4><b>3.</b> Click to "choose" button when you would to deliver this order just .</h4>
+<a (onclick)="closeDialog()" class="btn btn-outline-info btn-oblong tx-11 tx-uppercase tx-mont tx-medium tx-spacing-1 pd-x-30 bd-2">Ok</a>
+    </div> 
+  </div>
+</ng-template>
+<ng-template #callGetOrdersDialog>
+  <div mat-dialog-content>
+    <div class="body" style="height: 50%;">
+
+      <table class="table table-valign-middle">
+        <thead>
+          <th>
+            Cafe Name
+          </th>
+          <th>
+            Item Name
+          </th>
+          <th>
+            Quantity
+          </th>
+          <th>
+            price
+          </th>
+          <th>
+            Cafe Phone Number</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of delService.orderItems">
+            <td class="pd-l-0-force">
+              {{item.firstName}} {{item.laststName}}
+            </td>
+            <td>
+              {{item.itemName}}
+            </td>
+            <td>
+                {{item.quantity}}    
+            </td>
+            <td>
+            {{item.price}}  
+            </td>
+            <td>
+              {{item.phonNumber}}
+            </td>
+           
+           
+          </tr>
+        
+          
+        </tbody>
+      </table>
+</div> 
+</div>
+</ng-template>
+<app-delivery-siderbar></app-delivery-siderbar>
+<app-delivery-header></app-delivery-header>
+
+
+
+
+  <!-- Tab panes -->
+ 
+<!-- ########## END: RIGHT PANEL ########## --->
+
+<!-- ########## START: MAIN PANEL ########## -->
+<div class="br-mainpanel" style="margin-top: 10%;">
+ 
+  <div class="br-pagebody mg-t-5 pd-x-30" >
+    <div class="row row-sm">
+      <div class="col-sm-7 col-xl-4">
+        <div class="bg-teal rounded overflow-hidden">
+          <div class="pd-25 d-flex align-items-center">
+            <i class="ion ion-earth tx-60 lh-0 tx-white op-7"></i>
+            <div class="mg-l-20">
+              <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">number of new orders</p>
+              <br/>
+              <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">{{delService.summations.newOrders}} orders</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- col-3 -->
+      <div class="col-sm-7 col-xl-4 mg-t-20 mg-sm-t-0">
+        <div class="bg-danger rounded overflow-hidden">
+          <div class="pd-25 d-flex align-items-center">
+            <i class="ion ion-bag tx-60 lh-0 tx-white op-7"></i>
+            <div class="mg-l-20">
+              <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Orders you delivered</p>    
+                        <br/>
+              <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">{{delService.del}} orders</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- col-3 -->
+      <div class="col-sm-7 col-xl-4 mg-t-20 mg-sm-t-0">
+        <div class="bg-primary rounded overflow-hidden">
+          <div class="pd-25 d-flex align-items-center">
+            <i class="ion ion-monitor tx-60 lh-0 tx-white op-7"></i>
+            <div class="mg-l-20">
+              <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Total Profits</p>
+              <br/>
+              <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">{{delService.profit}} JD</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- col-3 -->
+     
+    </div><!-- row -->
+
+    <div class="row row-sm mg-t-20">
+      <div class="col-8">
+     
+
+        <div class="card bd-0 shadow-base pd-30 mg-t-20">
+          <div class="d-flex align-items-center justify-content-between mg-b-30">
+            <div>
+              <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">New Orders</h6>
+              <p class="mg-b-0"><i class="icon ion-calendar mg-r-5"></i>Please Choose order to deliver it</p>
+            </div>
+            <a (click)="openInstructionDialog()" class="btn btn-outline-info btn-oblong tx-11 tx-uppercase tx-mont tx-medium tx-spacing-1 pd-x-30 bd-2">Instructions</a>
+          </div><!-- d-flex -->
+        
+          <table class="table table-valign-middle mg-b-0">
+            <thead>
+              <th>
+                Order Id
+              </th>
+              <th>
+                Customer Name
+              </th>
+              <th>
+                PhoneNumber
+              </th>
+              <th>
+                Order City
+              </th>
+              <th>
+                Order Details
+              </th>
+              <th>
+                Choose
+              </th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of delService.orders">
+                <td class="pd-l-0-force">
+                  {{item.orderId}}
+                </td>
+                <td>
+                  {{item.firstName}}  {{item.lastName}}
+                </td>
+                <td>
+                  {{item.phonNumber}}  
+                </td>
+                <td>
+                  {{item.city}}    
+                </td>
+                <td>
+                  <a (click)="getOrderItems(item.orderId)" class="btn btn-outline-info btn-oblong tx-11 tx-uppercase tx-mont tx-medium tx-spacing-1 pd-x-30 bd-2">See detials</a>
+
+                </td>
+                <td>
+                  <a (click)="chooseOrder(item.orderId)" class="btn btn-outline-info btn-oblong tx-11 tx-uppercase tx-mont tx-medium tx-spacing-1 pd-x-30 bd-2">Choose </a>
+                </td>
+               
+              </tr>
+            
+              
+            </tbody>
+          </table>
+        </div>
+      
+
+      </div><!-- col-9 -->
+      <div class="col-8">
+     
+
+        <div class="card bd-0 shadow-base pd-30 mg-t-20">
+          <div class="d-flex align-items-center justify-content-between mg-b-30">
+            <div>
+              <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">You choose Orders:</h6>
+              <p class="mg-b-0"><i class="icon ion-calendar mg-r-5"></i>Please click to deliver after delivered order</p>
+            </div>
+            <a (click)="openInstructionDialog()" class="btn btn-outline-info btn-oblong tx-11 tx-uppercase tx-mont tx-medium tx-spacing-1 pd-x-30 bd-2">Instructions</a>
+          </div><!-- d-flex -->
+        
+          <table class="table table-valign-middle mg-b-0">
+            <thead>
+              <th>
+                Order Id
+              </th>
+              <th>
+                Customer Name
+              </th>
+              <th>
+                PhoneNumber
+              </th>
+              <th>
+                Order City
+              </th>
+              <th>
+                Order Details
+              </th>
+            <th>
+              UnChoose
+            </th>
+            <th>
+              Delivered
+            </th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of delService.choosedOrders">
+                <td class="pd-l-0-force">
+                  {{item.orderId}}
+                </td>
+                <td>
+                  {{item.firstName}}  {{item.lastName}}
+                </td>
+                <td>
+                  {{item.phonNumber}}  
+                </td>
+                <td>
+                  {{item.city}}    
+                </td>
+                
+                <td>
+                  <a (click)="getOrderItems(item.orderId)" class="btn btn-outline-info btn-oblong tx-11 tx-uppercase tx-mont tx-medium tx-spacing-1 pd-x-30 bd-2">See detials</a>
+
+                </td>
+               
+               <td>
+                <a (click)="unChooseOrder(item.orderId)" class="btn btn-outline-info btn-oblong tx-11 tx-uppercase tx-mont tx-medium tx-spacing-1 pd-x-30 bd-2">un Choose</a>
+               </td>
+               <td >
+                <a (click)="deliveredOrder(item.orderId)" class="btn btn-outline-info btn-oblong tx-11 tx-uppercase tx-mont tx-medium tx-spacing-1 pd-x-30 bd-2">delivered</a>
+               </td>
+              </tr>
+            
+              
+            </tbody>
+          </table>
+        </div>
+      
+
+      </div><!-- col-9 -->
+     
+    </div><!-- row -->
+
+  </div><!-- br-pagebody -->
+
+</div>
+<script src="../../../assets/assets/lib/jquery/jquery.js"></script>
+<script src="../../../assets/assets/lib/popper.js/popper.js"></script>
+<script src="../../../assets/assets/lib/bootstrap/bootstrap.js"></script>
+<script src="../../../assets/assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="../../../assets/assets/lib/moment/moment.js"></script>
+<script src="../../../assets/assets/lib/jquery-ui/jquery-ui.js"></script>
+<script src="../../../assets/assets/lib/jquery-switchbutton/jquery.switchButton.js"></script>
+<script src="../../../assets/assets/lib/peity/jquery.peity.js"></script>
+<script src="../../../assets/assets/lib/chartist/chartist.js"></script>
+<script src="../../../assets/assets/lib/jquery.sparkline.bower/jquery.sparkline.min.js"></script>
+<script src="../../../assets/assets/lib/d3/d3.js"></script>
+<script src="../../../assets/assets/lib/rickshaw/rickshaw.min.js"></script>
+
+
+<script src="../../../assets/assets/js/bracket.js"></script>
+<script src="../../../assets/assets/js/ResizeSensor.js"></script>
+<script src="../../../assets/assets/js/dashboard.js"></script>
+<script>
+  $(function(){
+    'use strict'
+
+    // FOR DEMO ONLY
+    // menu collapsed by default during first page load or refresh with screen
+    // having a size between 992px and 1299px. This is intended on this page only
+    // for better viewing of widgets demo.
+    $(window).resize(function(){
+      minimizeMenu();
+    });
+
+    minimizeMenu();
+
+    function minimizeMenu() {
+      if(window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
+        // show only the icons and hide left menu label by default
+        $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+        $('body').addClass('collapsed-menu');
+        $('.show-sub + .br-menu-sub').slideUp();
+      } else if(window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
+        $('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
+        $('body').removeClass('collapsed-menu');
+        $('.show-sub + .br-menu-sub').slideDown();
+      }
+    }
+  });
+</script>

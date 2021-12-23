@@ -1,0 +1,72 @@
+
+
+
+<app-admin-header></app-admin-header>
+<app-admin-slidbar></app-admin-slidbar>
+
+
+        
+
+<div class="container py-5 h-100">
+  <div class="br-mainpanel">
+    <div class="br-pageheader pd-y-15 pd-l-20">
+      <nav class="breadcrumb pd-0 mg-0 tx-12">
+        <a class="breadcrumb-item" href="index.html">Admin</a>
+        <a class="breadcrumb-item" href="#">Dashboord</a>
+        <span class="breadcrumb-item active">Testmonial</span>
+      </nav>
+   
+          
+               
+                <div class="br-pagebody">
+                  <div class="br-section-wrapper">
+                    <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Basic Responsive DataTable</h6>
+                    <p class="mg-b-25 mg-lg-b-50">Searching, ordering and paging goodness will be immediately added to the table, as shown in this example.</p>
+                   
+             
+
+
+
+
+                    <div class="tab1cards">
+                      <div class="card" *ngFor="let item of admin.testmonial ">
+                        <div class="mt-3 mb-4">
+                          <img
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.png"
+                            class="rounded-circle img-fluid" style="width: 100px;"
+                          />
+                        </div>
+
+                        <h4 
+                        class="mb-2"> Rate : {{item.rate}} 
+
+                          
+                    </h4>
+                      <p class="text-muted mb-4">Name:  </p>
+                      <div class="text-muted mb-4">
+                       <p> Massagrs: {{item.massage}}</p>
+
+                        
+                      </div>
+                      <button (click)="openDeleteDialog(item.testiMonialId)" type="button" class="btn btn-danger btn-rounded btn-lg">Rejeact</button>
+                       
+
+                      </div>
+                      
+                    </div>
+
+
+                   
+
+                <ng-template #callConfirmDeleteDialog>
+                  <h2 matDialogTitle>Are You Sure You Want to Delete This Commant ?</h2>
+                  <mat-dialog-actions >
+                      <button  class="btn btn-primary" mat-button matDialogClose="no">Cancel</button>
+                      <button class="btn btn-danger" mat-button matDialogClose="yes">Delete</button>
+                  </mat-dialog-actions>
+                </ng-template>
+
+
+
+               
+          

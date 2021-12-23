@@ -1,0 +1,73 @@
+
+
+
+
+
+<app-cafe-header></app-cafe-header>
+<app-cafe-sidebar></app-cafe-sidebar>
+
+
+
+<div class="col-md-9 col-sm-12 col-lg-9">
+    <div class="reservation-tab-content">
+       <div class="tab-content" id="v-pills-tabContent">
+             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+              
+
+
+
+
+                <form #registerForm="ngForm" (ngSubmit)="submit(registerForm.value)" id="register" class="restaurant-info-form brd-rd5">
+                    <div class="row mrg20">
+                        <div class="col-md-6 col-sm-6 col-lg-6">
+                            <label>itemName  <sup>*</sup></label>
+                            <input required type="text" #itemName="ngModel" matInput name="itemName" ngModel  placeholder="enter your itemName" class="brd-rd3" >
+                                <span *ngIf="itemName.invalid && itemName.touched">Item Name is required</span>
+
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6">
+                            <label>components <sup>*</sup></label>
+                            <input required type="text" #components="ngModel" matInput name="components" ngModel placeholder="enter the components" class="brd-rd3" >
+                             <span *ngIf="components.invalid && components.touched">components is required</span> 
+
+
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6">
+                            <label>price <sup>*</sup></label>
+                            <input required type="number" #price="ngModel" matInput name="price" ngModel placeholder="enter Item price" class="brd-rd3"  >
+                            <span *ngIf="price.invalid && price.touched">city is required</span> 
+
+
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-lg-6">
+                            <label>category <sup>*</sup></label>
+                            <label> Drinks press(1)/Sweets press(2)</label>
+
+                            <input  required type="text" #categoryId="ngModel" matInput name="categoryId" ngModel placeholder="enter your Item category" class="brd-rd3"  >
+                             <span *ngIf="categoryId.invalid && categoryId.touched">email is required</span> 
+
+
+                        </div>
+                       
+
+                        <app-img-item (onUploadFinished)="uploadFinished($event)"></app-img-item>
+                       
+                        
+                    
+                     
+                       
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-lg-12">
+                        <button class="red-bg brd-rd3"  type="submit">submit</button>
+                    </div>
+                </form>
+
+              </div>
+
+
+      
+            
+            
+        </div>
+    </div>
+</div>
