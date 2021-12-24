@@ -2,16 +2,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { KeyObject } from 'crypto';
 import jwtDecode from 'jwt-decode';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-
+  private apiBaseUrl = environment.API_URL;
   token: string | any
 
   userdata: any = [{}]
@@ -37,7 +37,7 @@ export class LoginService {
     this.spinner.show();
 
     //debugger
-    this.http.post('https://localhost:44376/api/JWT/login', data, requestOptions).subscribe((res: any) => {
+    this.http.post(`${this.apiBaseUrl}/api/JWT/login`, data, requestOptions).subscribe((res: any) => {
       this.toaster.success('Created');
       this.spinner.hide();
 
@@ -71,7 +71,7 @@ export class LoginService {
     //this.spinner.show();
 
     var respose1 = '';
-    this.http.post('https://localhost:44376/api/JWT/login', body, requestOptions).subscribe((res: any) => {
+    this.http.post(`${this.apiBaseUrl}/api/JWT/login`, body, requestOptions).subscribe((res: any) => {
       console.log(res);
       //this.spinner.hide();
 
@@ -81,10 +81,11 @@ export class LoginService {
       const responce = {
         token: respose1.toString(),
       };
+      localStorage.setItem("token", responce.token)
       console.log(responce);
 
       localStorage.setItem('token', responce.token);
-      //decode the token to extract the role name from the token  
+      //decode the token to extract the role name from the token
       const data: any = jwtDecode(responce.token);
       //save the decod on the local storge . but you must conver this data to string value using Json.stringify
       localStorage.setItem('user', JSON.stringify(data));
@@ -112,9 +113,8 @@ export class LoginService {
       if (data.role == "admin") {
         //localStorage.setItem('username',this.token.unique_name)
         //localStorage.setItem('role',this.token.role)
-        this.http.get('https://localhost:44376/api/Users/GetUserbyUserName/' + username).subscribe((response) => {
+        this.http.get(`${this.apiBaseUrl}/api/Users/GetUserbyUserName/${username}`).subscribe((response) => {
           this.userdata = response
-
           this.router.navigate(['admin/dashbord']);
         })
 
@@ -129,7 +129,7 @@ export class LoginService {
       }
       else if (data.role == "account") {
 
-        this.http.get('https://localhost:44376/api/Users/GetUserbyUserName/' + username).subscribe((response) => {
+        this.http.get(`${this.apiBaseUrl}/api/Users/GetUserbyUserName/${username}`).subscribe((response) => {
           this.userdata = response
 
           console.log(this.userdata)
@@ -138,7 +138,7 @@ export class LoginService {
         })
       }
       else if (data.role == "cafe") {
-        this.http.get('https://localhost:44376/api/Users/GetUserbyUserName/' + username).subscribe((response) => {
+        this.http.get(`${this.apiBaseUrl}/api/Users/GetUserbyUserName/${username}`).subscribe((response) => {
           this.userdata = response
 
           console.log(this.userdata)
@@ -146,7 +146,7 @@ export class LoginService {
         })
       }
       else if (data.role == "delivery") {
-        this.http.get('https://localhost:44376/api/Users/GetUserbyUserName/' + username).subscribe((response) => {
+        this.http.get(`${this.apiBaseUrl}/api/Users/GetUserbyUserName/${username}`).subscribe((response) => {
           this.userdata = response
 
           console.log(this.userdata)

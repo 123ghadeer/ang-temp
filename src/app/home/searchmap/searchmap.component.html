@@ -3,7 +3,14 @@
         <h2 class="text-left">Google Map</h2>
         <div class="card mt-3">
             <div class="card-body">
-                <div #mapRef style="width:100%;height:400px"></div>
+              <div class="form-group">
+                <input ngx-google-places-autocomplete
+                       class="form-control"
+                       placeholder="Start typing to search for place"
+                       type="text"
+                       #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+
+              </div>
             </div>
         </div>
     </div>

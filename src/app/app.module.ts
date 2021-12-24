@@ -11,19 +11,19 @@ import { AdminModule } from './admin/admin.module';
 import { CafesModule } from './cafes/cafes.module';
 import { CustomerModule } from './customer/customer.module';
 import { SharedModule } from './shared/shared.module';
-import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeliveryModule } from './delivery/delivery.module';
 import { AccoutantModule } from './accoutant/accoutant.module';
-import { HttpClientModule } from '@angular/common/http';
-import {MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatButtonModule} from '@angular/material/button'
-import {MatInputModule}from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button'
+import { MatInputModule } from '@angular/material/input';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { ToastrModule } from 'ngx-toastr';
-import{NgxSpinnerModule }from 'ngx-spinner';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { LogindialogComponent } from './logindialog/logindialog.component';
 import { RegisterdialogComponent } from './registerdialog/registerdialog.component'
 import jsPDF from 'jspdf';
@@ -34,6 +34,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { AgmCoreModule } from '@agm/core';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 
 
@@ -41,9 +44,9 @@ import { GoogleLoginProvider } from 'angularx-social-login';
 
 @NgModule({
   declarations: [
-    
+
     AppComponent,
-   
+
     ContustUsComponent,
     AboutUsComponent,
     MenuCafeComponent,
@@ -53,9 +56,12 @@ import { GoogleLoginProvider } from 'angularx-social-login';
   ],
   //entryComponents:[LogindialogComponent,RegisterdialogComponent],
   imports: [
-   
+    AgmCoreModule.forRoot({
+      apiKey: environment.MAP_API_KEY,
+      libraries: ['places', 'drawing', 'geometry']
+    }),
+    GooglePlaceModule,
     SocialLoginModule,
-
     NgxSpinnerModule,
     MatDialogModule,
     MatFormFieldModule,
@@ -78,19 +84,25 @@ import { GoogleLoginProvider } from 'angularx-social-login';
     ToastrModule.forRoot(),
     GoogleMapsModule,
     Ng2SearchPipeModule,
+
     // AgmCoreModule.forRoot({
     //   apiKey: 'AIzaSyB3TtC7ztiNouZ55oFsr3HwnR-6ln11F-Y',
     //   libraries: ['places']
     // })
-    
 
-  
+
+
 
   ],
-  exports:[
-  
+  exports: [
+
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
@@ -104,9 +116,9 @@ import { GoogleLoginProvider } from 'angularx-social-login';
           }
         ]
       } as SocialAuthServiceConfig,
-    }    
+    }
   ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
 
@@ -127,10 +139,10 @@ import { GoogleLoginProvider } from 'angularx-social-login';
 //     FilterPipe,
 //     RegisterdialogComponent,
 
-  
+
 //   ],
 //   entryComponents:[LogindialogComponent],
-  
+
 //   imports: [
 //     NgxSpinnerModule,
 //     ToastrModule,
@@ -153,12 +165,12 @@ import { GoogleLoginProvider } from 'angularx-social-login';
 //     MatButtonModule,
 //     MatDialogModule,
 //     BrowserAnimationsModule,
-    
+
 
 
 //   ],
 //   exports:[
-  
+
 
 //   ],
 //   providers: [],

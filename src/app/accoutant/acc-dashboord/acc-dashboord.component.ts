@@ -13,25 +13,24 @@ import { AccountService } from '../account.service';
   styleUrls: ['./acc-dashboord.component.css']
 })
 export class AccDashboordComponent implements OnInit {
-username:any
-  constructor( private http:HttpClient,private router:Router,private toster:ToastrService , public accountservuces:AccountService,public login:LoginService,private spiner :NgxSpinnerService, private mat:MatDialog ,private route:ActivatedRoute){ 
+  username: any
+  constructor(private http: HttpClient, private router: Router, private toster: ToastrService, public accountservuces: AccountService, public login: LoginService, private spiner: NgxSpinnerService, private mat: MatDialog, private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
-      this.username= params['x'];
+      this.username = params['x'];
       console.log(this.username)
-   console.log (this.login.userdata)
-  });
+      console.log(this.login.userdata)
+    });
   }
 
   ngOnInit(): void {
     this.getallfun()
   }
-  getallfun()
-{
-  this.spiner.show();
-this.accountservuces.getallfuncsales(),
-  this.spiner.hide();
+  getallfun() {
+    this.spiner.show();
+    this.accountservuces.getallfuncsales(),
+      this.spiner.hide();
     this.toster.success('Data Retrived');
- 
-}
+
+  }
 
 }

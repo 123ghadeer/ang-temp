@@ -17,6 +17,8 @@ import { GoogleLoginProvider } from 'angularx-social-login';
 import { UploadComponent } from './upload/upload.component';
 import { DeliverUploadComponent } from './deliver-upload/deliver-upload.component';
 import { SearchComponent } from './search/search.component';
+import { AgmCoreModule } from '@agm/core';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 
 @NgModule({
@@ -38,15 +40,8 @@ import { SearchComponent } from './search/search.component';
     FormsModule,
     ReactiveFormsModule,
     GoogleMapsModule,
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'AIzaSyB3TtC7ztiNouZ55oFsr3HwnR-6ln11F-Y',
-    //   libraries: ['places']
-    // })
-
-
-    
-    
-
+    AgmCoreModule,
+    GooglePlaceModule,
   ],
 })
 export class HomeModule { }
