@@ -13,7 +13,10 @@ export class HomeService {
   display_image:any
   data:any={}
 Result:any[]=[];
-
+cafeArray:any[]=[];
+customer:number=0;
+emp:number=0;
+cafe:number=0;
 
   constructor(private http:HttpClient , private toaster:ToastrService ,private spiner:NgxSpinnerService ,private router:Router) { }
  
@@ -40,9 +43,46 @@ Result:any[]=[];
     
     )
   }
-
-
-
+  countcutmoer()
+  {
+    this.http.get('https://localhost:44376/api/Users/countcutmoer').subscribe((result:any)=>{
+       
+      this.customer=result;
+      console.log(result);
+    },err=>{
+      console.log(err);
+    })
+  }
+  countemp()
+  {
+    this.http.get('https://localhost:44376/api/Users/countemp').subscribe((result:any)=>{
+       
+      this.emp=result;
+      console.log(result);
+    },err=>{
+      console.log(err);
+    })
+  }
+  countcafe()
+  {
+    this.http.get('https://localhost:44376/api/Users/countcafe').subscribe((result:any)=>{
+       
+      this.cafe=result;
+      console.log(result);
+    },err=>{
+      console.log(err);
+    })
+  }
+  getAllCafe(id:number)
+  {
+    
+    this.http.post('https://localhost:44376/api/Users/GetAllUsers',id).subscribe((result:any)=>{
+      this.cafeArray=result;
+    console.log(result);
+    },err =>{
+      console.log(err);
+    })
+  }
   // createdelvieryrequest(data:any)
   // {//this code to convert the data to json object , use the requestOptions after the data that sent .
   //   const headerDict = {

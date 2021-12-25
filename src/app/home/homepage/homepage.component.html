@@ -25,8 +25,8 @@
                             <div class="fact-box">
                                 <i class="brd-rd50"><img src="assets/images/resource/fact-icon1.png" alt="fact-icon1" itemprop="image"></i>
                                 <div class="fact-inner">
-                                    <strong><span class="counter">137</span></strong>
-                                    <h5>Restaurant</h5>
+                                    <strong><span class="counter">{{home.cafe}}</span></strong>
+                                    <h5>Cafes</h5>
                                 </div>
                             </div><!-- Fact Box -->
                         </div>
@@ -34,8 +34,8 @@
                             <div class="fact-box">
                                 <i class="brd-rd50"><img src="assets/images/resource/fact-icon2.png" alt="fact-icon2" itemprop="image"></i>
                                 <div class="fact-inner">
-                                    <strong><span class="counter">158</span></strong>
-                                    <h5>People Served</h5>
+                                    <strong><span class="counter">{{home.customer}}</span></strong>
+                                    <h5>Customer</h5>
                                 </div>
                             </div><!-- Fact Box -->
                         </div>
@@ -43,8 +43,8 @@
                             <div class="fact-box">
                                 <i class="brd-rd50"><img src="assets/images/resource/fact-icon3.png" alt="fact-icon3" itemprop="image"></i>
                                 <div class="fact-inner">
-                                    <strong><span class="counter">659</span>K</strong>
-                                    <h5>Happy Service</h5>
+                                    <strong><span class="counter">{{home.emp}}</span></strong>
+                                    <h5>Employee</h5>
                                 </div>
                             </div><!-- Fact Box -->
                         </div>
@@ -78,13 +78,9 @@
                         </div>
                     </div>
                     <div class="top-restaurants-wrapper">
-                        <ul class="restaurants-wrapper style2">
+                        <ul class="restaurants-wrapper style2" *ngFor="let item of home.cafeArray">
                             <li class="wow bounceIn" data-wow-delay="0.2s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 1" itemprop="url"><img src="assets/images/resource/top-restaurant1.png" alt="top-restaurant1.png" itemprop="image"></a></div></li>
-                            <li class="wow bounceIn" data-wow-delay="0.4s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 2" itemprop="url"><img src="assets/images/resource/top-restaurant2.png" alt="top-restaurant2.png" itemprop="image"></a></div></li>
-                            <li class="wow bounceIn" data-wow-delay="0.6s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 3" itemprop="url"><img src="assets/images/resource/top-restaurant3.png" alt="top-restaurant3.png" itemprop="image"></a></div></li>
-                            <li class="wow bounceIn" data-wow-delay="0.8s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 4" itemprop="url"><img src="assets/images/resource/top-restaurant4.png" alt="top-restaurant4.png" itemprop="image"></a></div></li>
-                            <li class="wow bounceIn" data-wow-delay="1s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 5" itemprop="url"><img src="assets/images/resource/top-restaurant5.png" alt="top-restaurant5.png" itemprop="image"></a></div></li>
-                            <li class="wow bounceIn" data-wow-delay="1.2s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 5" itemprop="url"><img src="assets/images/resource/top-restaurant6.png" alt="top-restaurant6.png" itemprop="image"></a></div></li>
+                           
                         </ul>
                     </div>
                 </div>
@@ -183,145 +179,7 @@
     </div>
 </section><!-- choose and enjoy meal -->
 
-<section>
-    <div class="block grayish low-opacity">
-        <div class="fixed-bg" style="background-image: url(assets/images/pattern.png)"></div>
-        <div class="top-mockup"><img src="assets/images/resource/mockup2.png" alt=""></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
-                    <div class="filters-wrapper">
-                        <div class="title1-wrapper text-center">
-                            <div class="title1-inner">
-                                <span>Your Favourite Food</span>
-                                <h2 itemprop="headline">Popular This Month</h2>
-                                <b>In Your City</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xs-12">
-                    <div class="dishes-caro">
-                        <div class="dish-item">
-                            <figure><img src="assets/images/resource/dish-caro1.jpg" alt=""></figure>
-                            <div class="item-meta">
-                                <img src="assets/images/resource/restaurant-logo2.png" alt="">
-                                <div>
-                                    <span>Jagnetina Na Raznju</span>
-                                    <p>68 5th Avenue New York </p>
-                                </div>
-                            </div>
-                            <div class="caro-dish-name">
-                                <h4>Korean Bibimbap Yamyam</h4>
-                                <span>$10.00–$30.00</span>
-                            </div>
-                        </div>
-                        <div class="dish-item">
-                            <figure><img src="assets/images/resource/dish-caro1.jpg" alt=""></figure>
-                            <div class="item-meta">
-                                <img src="assets/images/resource/restaurant-logo3.png" alt="">
-                                <div>
-                                    <span>Central Caffe Pizzeria</span>
-                                    <p>68 5th Avenue New York </p>
-                                </div>
-                            </div>
-                            <div class="caro-dish-name">
-                                <h4>Korean Bibimbap Yamyam</h4>
-                                <span>$10.00–$30.00</span>
-                            </div>
-                        </div>
-                        <div class="dish-item">
-                            <figure><img src="assets/images/resource/dish-caro1.jpg" alt=""></figure>
-                            <div class="item-meta">
-                                <img src="assets/images/resource/restaurant-logo4.png" alt="">
-                                <div>
-                                    <span>Dream Food By Opaq</span>
-                                    <p>68 5th Avenue New York </p>
-                                </div>
-                            </div>
-                            <div class="caro-dish-name">
-                                <h4>Korean Bibimbap Yamyam</h4>
-                                <span>$10.00–$30.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8 col-xs-12">
-                    <div class="popular-of-month">
-                        <div class="pop-dish wow fadeIn" data-wow-delay="0.1s">
-                            <div class="poplr-dish">
-                                <img src="assets/images/resource/round-pic1.jpg" alt="">
-                                <div class="dish-meta">
-                                    <span>$10.00–$30.00</span>
-                                    <h4><a href="#" title="">Tequila & Lime hake</a></h4>
-                                </div>
-                            </div>
-                            <div class="item-meta">
-                                <img alt="" src="assets/images/resource/restaurant-logo2.png">
-                                <div>
-                                    <span>Jagnetina Na Raznju</span>
-                                    <p>68 5th Avenue New York </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pop-dish wow fadeIn" data-wow-delay="0.2s">
-                            <div class="poplr-dish">
-                                <img src="assets/images/resource/round-pic2.jpg" alt="">
-                                <div class="dish-meta">
-                                    <span>$10.00–$30.00</span>
-                                    <h4><a href="#" title="">Maximus nibh facilisis</a></h4>
-                                </div>
-                            </div>
-                            <div class="item-meta">
-                                <img alt="" src="assets/images/resource/restaurant-logo3.png">
-                                <div>
-                                    <span>Central Caffe Pizzeria</span>
-                                    <p>68 5th Avenue New York </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pop-dish wow fadeIn" data-wow-delay="0.3s">
-                            <div class="poplr-dish">
-                                <img src="assets/images/resource/round-pic3.jpg" alt="">
-                                <div class="dish-meta">
-                                    <span>$10.00–$30.00</span>
-                                    <h4><a href="#" title="">Hendrerit nisi venenatis</a></h4>
-                                </div>
-                            </div>
-                            <div class="item-meta">
-                                <img alt="" src="assets/images/resource/restaurant-logo4.png">
-                                <div>
-                                    <span>Dream Food By Opaq</span>
-                                    <p>68 5th Avenue New York </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pop-dish">
-                            <div class="poplr-dish wow fadeIn" data-wow-delay="0.4s">
-                                <img src="assets/images/resource/round-pic4.jpg" alt="">
-                                <div class="dish-meta">
-                                    <span>$10.00–$30.00</span>
-                                    <h4><a href="#" title="">Grilled Shrimp Scampi</a></h4>
-                                </div>
-                            </div>
-                            <div class="item-meta">
-                                <img alt="" src="assets/images/resource/restaurant-logo5.png">
-                                <div>
-                                    <span>Fabio Al Porto Ristorante</span>
-                                    <p>68 5th Avenue New York </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rite-meta">
-                            <a href="#" title="" class="view-more">view more food</a>
-                        </div>
-                </div>
-            </div>
-        </div>
-        <div class="bottom-mockup"><img src="assets/images/resource/mockup1.png" alt=""></div>
-    </div>
-</section>
+
 
 <section>
     <div class="block blackish low-opacity">
