@@ -26,6 +26,7 @@
                                 <i class="brd-rd50"><img src="assets/images/resource/fact-icon1.png" alt="fact-icon1" itemprop="image"></i>
                                 <div class="fact-inner">
                                     <strong><span class="counter">{{home.cafe.cafenum}}</span></strong>
+                                    <strong><span class="counter">{{home.cafe}}</span></strong>
                                     <h5>Cafes</h5>
                                 </div>
                             </div><!-- Fact Box -->
@@ -35,6 +36,7 @@
                                 <i class="brd-rd50"><img src="assets/images/resource/fact-icon2.png" alt="fact-icon2" itemprop="image"></i>
                                 <div class="fact-inner">
                                     <strong><span class="counter">{{home.customer.cutomernum}}</span></strong>
+                                    <strong><span class="counter">{{home.customer}}</span></strong>
                                     <h5>Customer</h5>
                                 </div>
                             </div><!-- Fact Box -->
@@ -45,6 +47,8 @@
                                 <div class="fact-inner">
                                     <strong><span class="counter">9</span>K</strong>
                                     <h5>Happy Service</h5>
+                                    <strong><span class="counter">{{home.emp}}</span></strong>
+                                    <h5>Employee</h5>
                                 </div>
                             </div><!-- Fact Box -->
                         </div>
@@ -80,6 +84,10 @@
                     <div  class="top-restaurants-wrapper">
                         <ul  class="restaurants-wrapper style2">
                             <li  *ngFor="let item of home.cafedata" class="wow bounceIn" data-wow-delay="0.2s"><div class="top-restaurant"><a class="brd-rd50" (click)="cafedetails(item.userId)"title="Restaurant 1" itemprop="url"><img [src]="createImgPath(item.img)" alt="top-restaurant1.png" itemprop="image"></a></div></li>
+                    <div class="top-restaurants-wrapper">
+                        <ul class="restaurants-wrapper style2" *ngFor="let item of home.cafeArray">
+                            <li class="wow bounceIn" data-wow-delay="0.2s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 1" itemprop="url"><img src="assets/images/resource/top-restaurant1.png" alt="top-restaurant1.png" itemprop="image"></a></div></li>
+                           
                         </ul>
                     </div>
                 </div>
@@ -130,17 +138,6 @@
         </div>
     </div>
 </section><!-- choose and enjoy meal -->
-
-
-
-
-
-
-
-
-
-
-
 
 
 

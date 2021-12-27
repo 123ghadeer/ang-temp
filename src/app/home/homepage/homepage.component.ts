@@ -13,9 +13,17 @@ import { HomeService } from '../home.service';
 })
 export class HomepageComponent implements OnInit {
 
-
   Name:string="";
-  constructor( private http:HttpClient,private router:Router,private toster:ToastrService , public home:HomeService,private spiner :NgxSpinnerService,private mat:MatDialog ){}
+  constructor( private http:HttpClient,private router:Router,private toster:ToastrService , public home:HomeService,private spiner :NgxSpinnerService,private mat:MatDialog) 
+  {
+    this.home.getAllCafe(2);
+    this.home.countcutmoer();
+    this.home.countcafe();
+    this.home.countemp();
+
+
+  }
+
   ngOnInit(): void {
     this.getallcafe(2)
     this.getalltestmonial()
@@ -34,8 +42,6 @@ this.deliveeycount(4)
 this.home.searchName(Name)//this.router.navigate(["/home/search"],{ queryParams: { x:Name}});
 
   }
-
-
 
   getalltestmonial()
   {
@@ -155,5 +161,4 @@ this.home.searchName(Name)//this.router.navigate(["/home/search"],{ queryParams:
     return `https://localhost:44332/${serverPath}`;
   }
 
-  
 }

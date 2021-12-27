@@ -1,1 +1,9 @@
-<p>cart-list works!</p>
+<div class="row">
+  <div class="col-4" *ngFor="let item of cart">
+    <div class="card">
+      <div class="card-title">
+        {{item.name}}
+      </div>
+    </div>
+  </div>
+</div>
