@@ -30,24 +30,23 @@ export class CartService {
     this.cartSubject$.next(cart);
   }
 
-  addItemToCart(coffe: any, item: any, menuItemId: number, quantity: number) {
+  addItemToCart(item: any, quantity: number) {
     const cart = this.getCart();
-    const cartItem = cart.find(cItem => cItem.itemId === item.id);
+    const cartItem = cart.find(cItem => cItem.itemId === item.itemId);
     if (cartItem) {
       cartItem.quantity = quantity;
       cartItem.totalPrice = quantity * cartItem.price;
     } else {
       const newCartItem = {
         coffe: {
-          name: coffe.name,
+          name: item.coffename,
         },
         itemId: item.itemId,
         quantity: quantity,
-        menuItemId: menuItemId,
-        imageUrl: item.img,
+        imageUrl: `http://localhost:43323/${item.img}`,
         name: item.itemName,
-        price: item.price,
-        totalPrice: quantity * item.price,
+        price: item.Price,
+        totalPrice: quantity * item.Price,
       }
       cart.push(newCartItem);
     }
