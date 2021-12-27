@@ -1,7 +1,7 @@
 
 
 
-<div class="br-logo"><a href="#"><span></span>Cafe Dashboard<span></span></a></div>
+<div class="br-logo"><a (click)="getDashboard()"><span></span>Cafe Dashboard<span></span></a></div>
     <div class="br-sideleft overflow-y-auto">
       <label class="sidebar-label pd-x-15 mg-t-20">Navigation</label>
       <div class="br-sideleft-menu">
@@ -17,25 +17,37 @@
             <span (click)=" getMenu()" class="menu-item-label" style="color: aliceblue;">Menu</span>
           </div><!-- menu-item -->
         </a><!-- br-menu-link -->
+        <a    class="br-menu-link">
+          <div class="br-menu-item">
+            <i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>
+            <span (click)=" create()" class="menu-item-label" style="color: aliceblue;">Create New Item</span>
+          </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
        
       
        
-        <a   (click)="getCafeOrder()" class="br-menu-link">
+        <a  class="br-menu-link">
           <div class="br-menu-item">
             <i class="menu-item-icon icon ion-ios-paper-outline tx-22"></i>
-            <span class="menu-item-label" style="color: aliceblue; ">Cafe Orders</span>
+            <span  (click)=" getCafeOrder()" class="menu-item-label" style="color: aliceblue; ">Cafe Orders</span>
           </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a (click)="getprofile()"  class="br-menu-link">
+        <a   class="br-menu-link">
+          <div class="br-menu-item">
+            <i class="menu-item-icon icon ion-ios-paper-outline tx-22"></i>
+            <span   (click)=" getdelivery()" class="menu-item-label" style="color: aliceblue; ">Deliver</span>
+          </div><!-- menu-item -->
+        </a><!-- br-menu-link -->
+        <a   class="br-menu-link">
           <div class="br-menu-item">
             <i class="menu-item-icon icon ion-ios-book-outline tx-22"></i>
-            <span class="menu-item-label" style="color: aliceblue;">profile</span>
+            <span  (click)="getprofile()"class="menu-item-label" style="color: aliceblue;">profile</span>
           </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a href="sitemap.html" class="br-menu-link">
+        <a  class="br-menu-link">
           <div class="br-menu-item">
             <i class="menu-item-icon icon ion-ios-list-outline tx-22"></i>
-            <span class="menu-item-label" style="color: aliceblue;">Sitemap</span>
+            <span (click)="logout()" class="menu-item-label" style="color: aliceblue;">LogOut</span>
           </div><!-- menu-item -->
         </a><!-- br-menu-link -->
       </div><!-- br-sideleft-menu -->

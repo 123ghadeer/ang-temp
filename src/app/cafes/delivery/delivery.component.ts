@@ -1,5 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { CafeService } from '../cafe.service';
 import { UserdetailsComponent } from '../userdetails/userdetails.component';
 
@@ -30,21 +34,20 @@ Email:string='';
 
  Age: number=0;
 RoleId:number=0;
-  spiner: any;
-  toster: any;
-  constructor(public dialog: MatDialog, public cafeservice :CafeService,private mat:MatDialog) { 
+  
+  constructor( private http:HttpClient,private router:Router,private toster:ToastrService , public cafe:CafeService,private spiner :NgxSpinnerService,private mat:MatDialog) { 
     //this.cafeservice.getCafeProfile(3);
-this.getalldeliver(3)
+this.getalldeliver(4)
   }
   ngOnInit(): void {
   }
 
-  getalldeliver(id:number=3)
+  getalldeliver(id:number=4)
   {
     this.spiner.show();
   
   
-  this.cafeservice.getdelivery(id),
+  this.cafe.getdelivery(id),
     this.spiner.hide();
       this.toster.success('Data Retrived');
    

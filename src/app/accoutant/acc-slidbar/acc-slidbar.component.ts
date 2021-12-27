@@ -35,10 +35,10 @@ this.mat.open(EditprofileComponent,{data:{id:id}});
    }
 
 
-   logou()
+   logout()
 {
   localStorage.clear();
-  this.router.navigate(['/home/'])
+  this.router.navigate(['/home/home'])
 }
 
 

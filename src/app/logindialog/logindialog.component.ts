@@ -14,8 +14,7 @@ import { LoginService } from '../services/login.service';
 export class LogindialogComponent implements OnInit {
   
 
-  constructor(@Inject(MAT_DIALOG_DATA)public data:{ name:string,age:number} , public dialogRef: MatDialogRef<LogindialogComponent>,private router:Router,private spinner: NgxSpinnerService,public login:LoginService, private socialAuthService: SocialAuthService
-  ) {}
+  constructor(private router:Router,private spinner: NgxSpinnerService,public login:LoginService, private socialAuthService: SocialAuthService) {}
 
 
   

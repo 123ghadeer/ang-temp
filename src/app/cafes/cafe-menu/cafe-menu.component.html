@@ -5,65 +5,58 @@
       <main>
       <div class="br-pageheader pd-y-15 pd-l-20">
         <nav class="breadcrumb pd-0 mg-0 tx-12">
-          <a class="breadcrumb-item" href="index.html">Cafe</a>
-          <a class="breadcrumb-item" href="#">Menu</a>
+          <a class="breadcrumb-item" href="index.html">MY CAFE</a>
+          <a class="breadcrumb-item" href="#"> The Menu</a>
         </nav>
       </div><!-- br-pageheader -->
-     
-
-     
-      <div class="br-pagebody">
-        <div class="br-section-wrapper">
-<h3>Menu</h3>
+      </main>
+    </div>
+    
 
 
-          
-          <div class="table-wrapper">
-            <div id="datatable1_filter" class="dataTables_filter"><label><input type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Start searching " aria-controls="datatable1"></label></div>
-            <table id="datatable1" class="table display responsive nowrap">
-              <thead>
-                <tr>
-                  <th class="wd-15p">Item name</th>
-                  <th class="wd-15p"> Price</th>
-                  <th class="wd-20p">Image</th>
 
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let item of cafeservice.data | filter:searchText  ">
-                  <td>{{item.itemName}}</td>
-                  
-                  <td>{{item.price}}</td>
+    <section>
+      <div class="block less-spacing gray-bg top-padd30">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12 col-sm-12 col-lg-12">
+                      <div class="sec-box">
+                          <div class="remove-ext">
+                              <div class="row">
+                                  <div *ngFor="let item of cafeservice.data " class="col-md-4 col-sm-6 col-lg-4">
+                                  <div class="popular-dish-box style2 wow fadeIn" data-wow-delay="0.2s">
+                                      <div class="popular-dish-thumb">
+                                          <a href="food-detail.html" title="" itemprop="url"><img  [src]="createImgPath(item.img)"  alt="popular-dish-img1.jpg" itemprop="image"></a>
+                                          <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 4.25</span>
+                                      </div>
+                                      <div class="popular-dish-info">
+                                          <h4 itemprop="headline"><a href="food-detail.html" title="" itemprop="url">{{item.itemName}}</a></h4>
+                                          <p itemprop="description">{{item.components}}</p>
+                                          <span class="price">${{item.price}}</span>
+                                          <a class="brd-rd4 "(click)="openDeleteDialog(item.itemId);" title="Order Now" itemprop="url">Delete</a>
+                                          <a class="brd-rd4 "(click)="populateForm(item.itemId,item.itemName,item.price,item.components,item.img)" title="Order Now" itemprop="url">Edit</a>
 
-                  <td><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;"  [src]="createImgPath(item.img)" 
-
-                    class="rounded-circle img-fluid" style="width: 100px;" alt="" height="80" width="90"></td>
-
-
-                  
-                  <td>
-               <a (click)="populateForm(item.itemId,item.itemName,item.price,item.components,item.img,item.categoryId)" 
-              class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>  
-
-             <button (click)="openDeleteDialog(item.itemId);" style="color: brown;" class="btn btn-danger mx-3" >Delete</button> 
-            </td>
-                </tr>
-               
-               
+                                         
+                                      </div>
+                                  </div><!-- Popular Dish Box -->
+                              </div>
+                             
+                              
             
-              </tbody>
-            </table>
-          </div><!-- table-wrapper -->
-             
-        
-              
-            </div><!-- br-section-wrapper -->
+                             
+                              
+                              </div>
+                          </div>
+                         
+                      </div>
+                  </div>
+              </div>
           </div>
-        </main>
-          </div>
+      </div>
+  </section>
 
 
-
+    
           <ng-template #callConfirmDeleteDialog>
             <h2 matDialogTitle>Are You Sure You Want to Delete This ?</h2>
             <mat-dialog-actions >
@@ -79,7 +72,7 @@
         
         <td colspan="1">
             <form #UpdateTrainer="ngForm" (ngSubmit)="updateMenu(UpdateTrainer.value); UpdateTrainer.resetForm()" class="well form-horizontal">
-                <h2>EDIT INFO </h2>
+                <h2>EDIT Item Info </h2>
                <fieldset>
                   <div class="form-group">
                      <div class="col-md-8 inputGroupContainer">
@@ -89,35 +82,28 @@
                  
                   <div class="form-group">
                      <div class="col-md-8 inputGroupContainer">
-                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input required type="text" matInput name="ItemName"  [(ngModel)]="ItemName"   placeholder="itemName" class="form-control" >
+                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i>Item Name </span><input required type="text" matInput name="ItemName"  [(ngModel)]="ItemName"   placeholder="itemName" class="form-control" >
                             <!-- <span *ngIf="FirstName['invalid'] && FirstName['touched']">FirstName is required</span> -->
                         </div>
                      </div>
                   </div>
                   <div class="form-group">
                      <div class="col-md-8 inputGroupContainer">
-                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input required type="text" matInput name="Components"  [(ngModel)]="Components" placeholder="components" class="form-control"  >
+                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i> Componant</span><input required type="text" matInput name="Components"  [(ngModel)]="Components" placeholder="components" class="form-control"  >
                             <!-- <span *ngIf="UserName.invalid && UserName.touched">User Name is required</span> -->
                         </div>
                      </div>
                   </div>
                   <div class="form-group">
                      <div class="col-md-8 inputGroupContainer">
-                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input  required type="number"  matInput name="Price" [(ngModel)]="Price" placeholder="price" class="form-control" >
+                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i> Price</span><input  required type="number" step="0.01"  matInput name="Price" [(ngModel)]="Price" placeholder="price" class="form-control" >
                             <!-- <span *ngIf="Email.invalid && Email.touched">email is required</span> -->
                         </div>
                      </div>
                   </div>
-                  <div class="form-group">
-                     <div class="col-md-8 inputGroupContainer">
-                        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input required type="number"  matInput name="CategoryId"  [(ngModel)]="CategoryId" placeholder="categoryId" class="form-control"  >
-                            <!-- <span *ngIf="PhonNumber.invalid && PhonNumber.touched">Phone is required</span>   -->
-        
-                           </div>
-                     </div>
-                  </div>
+                 
                   
-                  <app-img-item (onUploadFinished)="uploadFinished($event)"></app-img-item>
+                  <app-img-item (onUploadFinished)="uploadFinished($event)" ></app-img-item>
 
                         
                  

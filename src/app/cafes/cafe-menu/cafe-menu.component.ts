@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { NgModule } from '@angular/core';
 import { CafeService } from '../cafe.service';
+import { LoginService } from 'src/app/services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cafe-menu',
@@ -29,8 +31,8 @@ export class CafeMenuComponent implements OnInit {
   Img: string='';
   CategoryId: number=0;
  
-  constructor(public dialog: MatDialog, public cafeservice :CafeService) { 
-    this.cafeservice.getMenu();
+  constructor(public dialog: MatDialog, public cafeservice :CafeService ,public login:LoginService ,private router:Router) { 
+    this.cafeservice.getMenucafe( login.userdata.userId);
 
   }
   
@@ -57,7 +59,7 @@ export class CafeMenuComponent implements OnInit {
     this.response = event;
   }
 
-  populateForm(itemId:number,itemName:string,components:string,price:any, img:string,categoryId:number)  
+  populateForm(itemId:number,itemName:string,components:string,price:any, img:string)  
     {
       console.log(itemId)
    this.ItemId =itemId;
@@ -67,7 +69,6 @@ export class CafeMenuComponent implements OnInit {
    this.Components = components;
    this.Price= price;
    this.Img = img;
-   this.CategoryId = categoryId;
    
    this.dialog.open(this.callAPIDialog);
   }
@@ -76,21 +77,21 @@ export class CafeMenuComponent implements OnInit {
   {
     data.img = this.response.dbPath;
     console.log(data.img);
+    data.userId = this.login.userdata.userId
     console.log(data)
     this.cafeservice.updateMenu(data);
-    window.location.reload();
-
+this.router.navigate(["cafe/dashboard"])
   }
 
   deleteMenuItem(itemId:number)
   {  
       this.cafeservice.deleteMenuItem(itemId);
-      window.location.reload();
+      this.router.navigate(["cafe/dashboard"])
   
   }
 
   public createImgPath = (serverPath: string) => {
-    console.log(serverPath)
+    //console.log(serverPath)
     return `https://localhost:44376/${serverPath}`;
   }
 

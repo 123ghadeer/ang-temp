@@ -13,12 +13,8 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class HeadercafeComponent implements OnInit {
   username:any;
-  constructor(private Mat:MatDialog ,private toaster:ToastrService,private router:Router , public login:LoginService,private route:ActivatedRoute) { 
-    this.route.queryParams.subscribe(params => {
-      this.username= params['x'];
-      console.log(this.username)
-   console.log (this.login.userdata)
-  });
+  constructor(private toaster:ToastrService,private router:Router , public login:LoginService,private route:ActivatedRoute) { 
+    
   
   }
 
@@ -27,18 +23,30 @@ export class HeadercafeComponent implements OnInit {
   }
 loggedin()
 {
-  return localStorage.getItem('token')
+  return localStorage.getItem('token');
+
 }
 
-opendialog()
+logout()
 {
+  localStorage.clear();
+  //window.location.reload();
 
-  this.Mat.open(LogindialogComponent,{data:{name:"monther",age:55664}})
-  //this.dialogRef.close();
-
+  
 }
 
-openRegister(){  this.Mat.open(RegisterdialogComponent,{data:{name:"monther",age:55664}})}
+// opendialog()
+// {
+
+//   this.Mat.open(LogindialogComponent,{data:{name:"monther",age:55664}})
+//   //this.dialogRef.close();
+
+// }
+
+// openRegister(){  
+//   this.Mat.open(RegisterdialogComponent,{data:{name:"monther",age:55664}})
+  
+// }
 
 
 // let dialogRef = this.matDialog.open(MyDialogComponent);

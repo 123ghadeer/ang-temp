@@ -13,6 +13,7 @@ import { CafeService } from '../cafe.service';
   styleUrls: ['./cafe-dashboard.component.css']
 })
 export class CafeDashboardComponent implements OnInit {
+  searchText:any;
 
   username: any
   constructor(private http: HttpClient, private router: Router, private toster: ToastrService, public cafe: CafeService, public login: LoginService, private spiner: NgxSpinnerService, private mat: MatDialog, private route: ActivatedRoute) {
@@ -25,6 +26,10 @@ export class CafeDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallfun()
+    this.cafe.getMenucafe(this.login.userdata.userId);
+    this.cafe.getallfunprice(this.login.userdata.userId);
+
+
   }
   getallfun() {
     this.spiner.show();
@@ -36,6 +41,15 @@ export class CafeDashboardComponent implements OnInit {
 
 
 
+public createImgPath = (serverPath: string) => {
+  console.log(serverPath)
+  return `https://localhost:44376/${serverPath}`;
+}
 
+
+getMenu(){
+  this.router.navigate(['./cafe/menu']) 
+
+}
 
 }

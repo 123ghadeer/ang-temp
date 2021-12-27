@@ -19,15 +19,15 @@ export class ManageEmpComponent implements OnInit {
   constructor( private http:HttpClient,private router:Router,private toster:ToastrService , public accountservic:AccountService,private spiner :NgxSpinnerService,private mat:MatDialog) { }
 
   ngOnInit(): void {
-    this.getalldeliver(3);
+    this.getalldeliver(4);
   }
 
-getalldeliver(id:number=3)
+getalldeliver(id:number=4)
 {
   this.spiner.show();
 
 
-this.accountservic.getdelivery(id),
+this.accountservic.getdelivery(4),
   this.spiner.hide();
     this.toster.success('Data Retrived');
  

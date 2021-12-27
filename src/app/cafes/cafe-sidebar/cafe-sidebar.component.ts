@@ -22,8 +22,13 @@ export class CafeSidebarComponent implements OnInit {
     this.router.navigate(['./cafe/menu']) 
 
   }
-  getCafeOrder(){
+   getCafeOrder(){
     this.router.navigate(['./cafe/menu']) 
+
+  }
+  create()
+  {
+        this.router.navigate(['./cafe/createitem']) 
 
   }
 
@@ -41,7 +46,11 @@ export class CafeSidebarComponent implements OnInit {
     this.router.navigate(['./cafe/sales']) 
 
   }
+  logout(){
 
+    localStorage.clear();
+    this.router.navigate(["home/home"])
+  }
 
 
 

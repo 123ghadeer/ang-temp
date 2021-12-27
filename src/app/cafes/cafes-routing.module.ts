@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CafeDashboardComponent } from './cafe-dashboard/cafe-dashboard.component';
 import { CafeMenuComponent } from './cafe-menu/cafe-menu.component';
+import { CafeorderComponent } from './cafeorder/cafeorder.component';
 import { CreateMenuItemComponent } from './create-menu-item/create-menu-item.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -21,7 +22,9 @@ const routes: Routes = [
   {
     path:'menu',component:CafeMenuComponent
   },
-
+  {
+    path:'order',component:CafeorderComponent
+  },
   {
     path:'profile',component:ProfileComponent
   },

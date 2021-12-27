@@ -49,10 +49,10 @@
               </div>
           </div>
           <div class="col-lg-6">
-              <div class="about-avatar">
-                  <img src="{{login.userdata.img}}" title="" alt="">
-              </div>
-          </div>
+            <div class="about-avatar">
+                <img [src]="createImgPath(login.userdata.img)" alt="profile picture" title="" alt="">
+            </div>
+        </div>
       </div>
   
   </div>
@@ -64,10 +64,10 @@
 
 <td colspan="1">
   <form #UpdateTrainer="ngForm" (ngSubmit)="updateTrainer(UpdateTrainer.value); UpdateTrainer.resetForm()" class="well form-horizontal">
-      <h2>EDIT INFO </h2>
+      <h2>Edit Cafe Info </h2>
      <fieldset>
         <div class="form-group">
-           <div class="col-md-8 inputGroupContainer">
+           <div class="col-md-8 inputGroupContainer">Cafe Name
               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input  required  type="hidden" matInput name="userId"  [(ngModel)]="userId"   class="form-control" ></div>
            </div>
         </div>
@@ -105,6 +105,11 @@
                  </div>
            </div>
         </div>
+       
+            <app-cafe-img (onUploadFinished)="uploadFinished($event)"></app-cafe-img>
+
+       
+
         <div class="form-group">
            <div class="col-md-8 inputGroupContainer">
              
@@ -116,17 +121,7 @@
               
         </div>
         </div>
-        <div class="form-group">
-          <div class="col-md-8 inputGroupContainer">
-             <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <!-- <input type="file"  matInput name="Img" #file placeholder="Choose Image" 
-              [(ngModel)]="Img" (change)="uploadFile(file.files)" 
-           style="display:none;">
-           <button type="button" class="btn btn-success" 
-           (click)="file.click()">Upload Image</button> -->
-             </div>
-          </div>
-       </div>
+       
         <div class="form-group">
            <div class="col-md-8 inputGroupContainer">
               <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input required type="password"   matInput name="PassWord" [(ngModel)]="PassWord" placeholder="password" class="form-control"  >

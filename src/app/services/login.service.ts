@@ -98,12 +98,7 @@ export class LoginService {
       console.log(retrievedata)
       console.log(username)
 
-      //localStorage.setItem('username',this.data.unique_name);
-
-      //var username=data.username;
-
-      //var x= localStorage.setItem("username")
-      //var y=localStorage.setItem("userId",this.responce.userId)
+     
 
 
 
@@ -111,21 +106,29 @@ export class LoginService {
 
 
       if (data.role == "admin") {
+        this.http.get('https://localhost:44376/api/Users/GetUserbyUserName/' + username).subscribe((response) => {
         //localStorage.setItem('username',this.token.unique_name)
         //localStorage.setItem('role',this.token.role)
-        this.http.get(`${this.apiBaseUrl}/api/Users/GetUserbyUserName/${username}`).subscribe((response) => {
           this.userdata = response
           this.router.navigate(['admin/dashbord']);
+          //window.location.reload();
+
         })
 
       }
 
 
       else if (data.role == "customer") {
-        //localStorage.setItem('username',this.token.unique_name)
-        //localStorage.setItem('role',this.token.role)
-        this.router.navigate(['home/homepage'], { queryParams: { x: username } })
-        //this.router.navigate(['---'],{ queryParams: { x: y} })
+
+        this.http.get('https://localhost:44376/api/Users/GetUserbyUserName/' + username).subscribe((response) => {
+          this.userdata = response
+
+          console.log(this.userdata)
+          this.router.navigate(['home/home'], { queryParams: { x: username } });
+          //window.location.reload();
+
+
+        })
       }
       else if (data.role == "account") {
 
@@ -142,7 +145,7 @@ export class LoginService {
           this.userdata = response
 
           console.log(this.userdata)
-          this.router.navigate(['cafe/dashboord'], { queryParams: { x: username } });
+          this.router.navigate(['cafe/dashboard'], { queryParams: { x: username } });
         })
       }
       else if (data.role == "delivery") {
