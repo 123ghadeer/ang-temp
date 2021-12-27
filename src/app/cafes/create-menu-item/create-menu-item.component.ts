@@ -5,6 +5,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LoginService } from 'src/app/services/login.service';
 import { CafeService } from '../cafe.service';
 
 
@@ -27,7 +28,7 @@ export class CreateMenuItemComponent implements OnInit {
 
   createitem:FormGroup|any
 
-    constructor(private fb:FormBuilder,public cafeservice:CafeService,public http:HttpClient,private router:Router) {
+    constructor(private fb:FormBuilder,public cafeservice:CafeService,public http:HttpClient,private router:Router , public login:LoginService) {
 
      
       
@@ -46,6 +47,8 @@ export class CreateMenuItemComponent implements OnInit {
 submit(data:any)
 {
   data.img = this.response.dbPath;
+    data.userId = this.login.userdata.userId
+console.log(this.login.userdata.userId);
   console.log(data.img);
   //this..show();
    this.http.post('https://localhost:44376/api/MenuItem/create',data).subscribe((result)=>{

@@ -124,25 +124,7 @@ funsales:any=[{}];
 
 
 
-//   uploadimage(form:FormData)
-// {
 
-//   const headerDict = {
-//     'Content-Type': 'application/json',
-//     'Accept': 'application/json'
-//     }
-//     const requestOptions = {
-//     headers: new HttpHeaders(headerDict),
-//     };
-    
-//     this.http.post('https://localhost:44376/api/Course/uploadImage',form).subscribe((data: any) => {
-//     this.display_image=data.image;
-//     console.log(this.display_image)
-    
-//     if(data){
-//     console.log(this.display_image=data.imagename);}
-//     })
-// }
 
  
 
@@ -156,9 +138,6 @@ funsales:any=[{}];
     console.log(this.funsales)
   })
 
-//     return this.http.get('https://localhost:44376/api/Sales/funsales').subscribe((res)=>{this.funsales=res
-// this.toaster.success("Datareteive") 
-//   },(error:any)=>{this.toaster.error("invalid")})
 
   }
 
@@ -186,7 +165,7 @@ console.log(this.salesdata)})
 
   
 
-  getdelivery(roleid:number=3)
+  getdelivery(roleid:number=4)
   {
 
    return this.http.get<any>('https://localhost:44376/api/Users/GetAllUsers/'+roleid).subscribe((res:any)=>{this.deliverdata=res})

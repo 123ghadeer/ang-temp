@@ -1,0 +1,157 @@
+<app-cafe-header></app-cafe-header>
+<app-cafe-sidebar></app-cafe-sidebar>
+
+    <div class="br-mainpanel">
+      <main>
+      <div class="br-pageheader pd-y-15 pd-l-20">
+        <nav class="breadcrumb pd-0 mg-0 tx-12">
+          <a class="breadcrumb-item" href="index.html">Cafe</a>
+          <a class="breadcrumb-item" href="#">Menu</a>
+        </nav>
+      </div><!-- br-pageheader -->
+     
+
+     
+      <div class="br-pagebody">
+        <div class="br-section-wrapper">
+<h3>Menu</h3>
+
+
+          
+          <div class="table-wrapper">
+            <div id="datatable1_filter" class="dataTables_filter"><label><input type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Start searching " aria-controls="datatable1"></label></div>
+            <table id="datatable1" class="table display responsive nowrap">
+              <thead>
+                <tr>
+                  <th class="wd-15p">Item name</th>
+                  <th class="wd-15p"> Price</th>
+                  <th class="wd-20p">Image</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of cafe.data | filter:searchText  ">
+                  <td>{{item.itemName}}</td>
+                  
+                  <td>{{item.price}}</td>
+
+                  <td><img style="border-radius:20%;margin: 0 !important;padding:  0 !important;"  [src]="createImgPath(item.img)" 
+
+                    class="rounded-circle img-fluid" style="width: 100px;" alt="" height="80" width="90"></td>
+
+
+                  
+                  <td>
+              
+             <button (click)="openDeleteDialog(item.itemId);" style="color: rgb(240, 240, 240);" class="btn btn-danger mx-3" >Delete</button> 
+            </td>
+                </tr>
+               
+               
+            
+              </tbody>
+            </table>
+          </div><!-- table-wrapper -->
+             
+        
+              
+            </div><!-- br-section-wrapper -->
+          </div>
+        </main>
+          </div>
+
+
+
+          <ng-template #callConfirmDeleteDialog>
+            <h2 matDialogTitle>Are You Sure You Want to Delete This ?</h2>
+            <mat-dialog-actions >
+                <button  class="btn btn-primary" mat-button matDialogClose="no">Cancel</button>
+                <button  class="btn btn-danger" mat-button matDialogClose="yes">Delete</button>
+            </mat-dialog-actions>
+          </ng-template>
+
+
+
+     
+
+<script> 
+$('#datatable1').DataTable({
+  responsive: true,
+  language: {
+    searchPlaceholder: 'Search...',
+    sSearch: '',
+    lengthMenu: 'MENU items/page',
+  }
+});
+</script>
+
+    <script src="../../../assets/assets/lib/jquery/jquery.js"></script>
+<script src="../../../assets/assets/lib/popper.js/popper.js"></script>
+<script src="../../../assets/assets/lib/bootstrap/bootstrap.js"></script>
+<script src="../../../assets/assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="../../../assets/assets/lib/moment/moment.js"></script>
+<script src="../../../assets/assets/lib/jquery-ui/jquery-ui.js"></script>
+<script src="../../../assets/assets/lib/jquery-switchbutton/jquery.switchButton.js"></script>
+<script src="../../../assets/assets/lib/peity/jquery.peity.js"></script>
+<script src="../../../assets/assets/lib/chartist/chartist.js"></script>
+<script src="../../../assets/assets/lib/jquery.sparkline.bower/jquery.sparkline.min.js"></script>
+<script src="../../../assets/assets/lib/d3/d3.js"></script>
+<script src="../../../assets/assets/lib/rickshaw/rickshaw.min.js"></script>
+
+
+<script src="../../../assets/assets/js/bracket.js"></script>
+<script src="../../../assets/assets/js/ResizeSensor.js"></script>
+<script src="../../../assets/assets/js/dashboard.js"></script>
+<script>
+  $(function(){
+    'use strict'
+
+    // FOR DEMO ONLY
+    // menu collapsed by default during first page load or refresh with screen
+    // having a size between 992px and 1299px. This is intended on this page only
+    // for better viewing of widgets demo.
+    $(window).resize(function(){
+      minimizeMenu();
+    });
+
+    minimizeMenu();
+
+    function minimizeMenu() {
+      if(window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
+        // show only the icons and hide left menu label by default
+        $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+        $('body').addClass('collapsed-menu');
+        $('.show-sub + .br-menu-sub').slideUp();
+      } else if(window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
+        $('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
+        $('body').removeClass('collapsed-menu');
+        $('.show-sub + .br-menu-sub').slideDown();
+      }
+    }
+  });
+</script>
+
+    <script>
+      $(function(){
+        'use strict';
+
+        $('#datatable1').DataTable({
+          responsive: true,
+          language: {
+            searchPlaceholder: 'Search...',
+            sSearch: '',
+            lengthMenu: 'MENU items/page',
+          }
+        });
+
+        $('#datatable2').DataTable({
+          bLengthChange: false,
+          searching: false,
+          responsive: true
+        });
+
+        // Select2
+        $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
+
+      });
+    </script>

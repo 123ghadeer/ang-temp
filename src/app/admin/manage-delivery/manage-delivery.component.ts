@@ -20,10 +20,10 @@ export class ManageDeliveryComponent implements OnInit {
   constructor( private http:HttpClient,private router:Router,private toster:ToastrService , public admin:AdminService,private spiner :NgxSpinnerService,private mat:MatDialog) { }
 
   ngOnInit(): void {
-    this.getalldeliver(3);
+    this.getalldeliver(4);
   }
 
-getalldeliver(id:number=3)
+getalldeliver(id:number=4)
 {
   this.spiner.show();
 

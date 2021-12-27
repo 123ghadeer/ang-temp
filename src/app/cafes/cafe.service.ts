@@ -13,28 +13,44 @@ data :any[]=[];
 profiledata :any[]=[];
 MenuOrderFun : any =[{}];
 selectedItem:any={};
-
+funprice:any=[{}]
 delevirydata :any[]=[];
 display_image:any
   constructor(private http :HttpClient,private toastr :ToastrService,private spinner:NgxSpinnerService,private router:Router) { }
 
-getMenu(){
+getMenu(){}
+
+
+
+getMenucafe(id:number){
   this.spinner.show();
-
- return this.http.get('https://localhost:44376/api/MenuItem/GetMenuItem').subscribe((result:any)=>{
-       
-    this.data=result
-    console.log(result);
-     this.toastr.success( 'getmenu works well!!!');
-     this.spinner.hide();
-
+  this.http.get('https://localhost:44376/api/MenuItem/menu/'+id).subscribe((response:any)=>{
+     this.data=response
+    // if(data){
+    //   //debugger
+    //   this.selectedItem=data;
+    //   this.router.navigate(['client/profile']);
+    // }
+    console.log(response);
+    this.spinner.hide();
   },err=>{
-    console.log(err);
-     this.toastr.error(err);
-  })
-  // debugger
-  return this.data
+    this.spinner.hide();
+    this.toastr.error('Something went worng ,please login again');
+    this.router.navigate(['']);
+  }
+  
+  )
 }
+
+
+
+getallfunprice(id:number)
+  {
+
+    return this.http.get('https://localhost:44376/api/MenuItem/fun/'+id).subscribe((res)=>{this.funprice=res 
+    console.log(this.funprice)
+  })
+  }
 
 GetMenuOrderFun(){
 
@@ -64,7 +80,7 @@ getCafeOrder(){
 
 
 
-getdelivery(roleid:number=3)
+getdelivery(roleid:number=4)
 {
 
  return this.http.get<any>('https://localhost:44376/api/Users/GetAllUsers/'+roleid).subscribe((res:any)=>{this.delevirydata=res})
@@ -78,7 +94,7 @@ updateMenu(data:any)
 {
   this.spinner.show();
 
-   this.http.put('https://localhost:44376/api/MenuItem',data).subscribe((result)=>{
+   this.http.put('https://localhost:44376/api/MenuItem/update',data).subscribe((result)=>{
    
    this.toastr.success(' Updated successfully');
    this.spinner.hide();

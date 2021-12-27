@@ -1,5 +1,4 @@
-<p>search works!</p>
-<table>
+<!-- <table>
     <tbody>
         <tr *ngFor="let item of home.Result  ">
           <td>{{item.categoryName}}</td>
@@ -17,7 +16,7 @@
 
           <td>
         </tr>
-</table>
+</table> -->
 <app-headercafe></app-headercafe>
 
 
@@ -39,17 +38,18 @@
                             <div class="remove-ext">
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-lg-6">
-                                        <div class="news-box wow fadeIn" data-wow-delay="0.2s">
+                                        <div *ngFor="let item of home.Result" class="news-box wow fadeIn" data-wow-delay="0.2s">
                                             <div class="news-thumb">
-                                                <a class="brd-rd2" href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="assets/images/resource/news-img3-1.jpg" alt="news-img3-1.jpg" itemprop="image"></a>
+                                                <a class="brd-rd2" href="blog-detail-right-sidebar.html" title="" itemprop="url"><img [src]="createImgPath(item.img)" 
+                                                    alt="news-img3-1.jpg" itemprop="image"></a>
                                                 <div class="news-btns">
-                                                    <a class="post-date red-bg" href="#" title="" itemprop="url">JUNE 14</a>
-                                                    <a class="read-more" href="blog-detail-right-sidebar.html" itemprop="url">READ MORE</a>
+                                                    <a class="post-date red-bg" href="#" title="" itemprop="url">{{item.categoryName}} : {{item.itemName}}  : {{item.price}}$  </a>
+                                                    <a class="read-more" href="blog-detail-right-sidebar.html" itemprop="url">Order Now</a>
                                                 </div>
                                             </div>
                                             <div class="news-info">
-                                                <h4 itemprop="headline"><a href="blog-detail-right-sidebar.html" title="" itemprop="url">Floury Bakery is The Best Choice</a></h4>
-                                                <p itemprop="description">The only thing bad about the place was the time they .took to provide us with our food</p>
+                                                <h4 itemprop="headline"><a href="blog-detail-right-sidebar.html" title="" itemprop="url"> cafe : {{item.cafeName}}</a></h4>
+                                                <p itemprop="description">{{item.components}}</p>
                                             </div>
                                         </div>
                                     </div>

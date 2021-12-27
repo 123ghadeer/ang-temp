@@ -16,6 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ImgItemComponent } from './img-item/img-item.component';
+import { CafeImgComponent } from './cafe-img/cafe-img.component';
+import { CafeorderComponent } from './cafeorder/cafeorder.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { ImgItemComponent } from './img-item/img-item.component';
     CreateMenuItemComponent,
     UserdetailsComponent,
     ImgItemComponent,
+    CafeImgComponent,
+    CafeorderComponent
     ],
   imports: [
     CommonModule,
@@ -38,7 +42,6 @@ import { ImgItemComponent } from './img-item/img-item.component';
     FormsModule,
     Ng2SearchPipeModule,
     ReactiveFormsModule,
-
 
 
   ]

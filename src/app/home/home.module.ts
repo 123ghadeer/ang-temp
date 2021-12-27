@@ -17,6 +17,12 @@ import { GoogleLoginProvider } from 'angularx-social-login';
 import { UploadComponent } from './upload/upload.component';
 import { DeliverUploadComponent } from './deliver-upload/deliver-upload.component';
 import { SearchComponent } from './search/search.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CafeDetailsComponent } from './cafe-details/cafe-details.component';
+import { ItemDetailsComponent } from './item-details/item-details.component';
+import { AllCafesComponent } from './all-cafes/all-cafes.component';
 
 
 @NgModule({
@@ -29,7 +35,13 @@ import { SearchComponent } from './search/search.component';
     SearchmapComponent,
     UploadComponent,
     DeliverUploadComponent,
-    SearchComponent
+    SearchComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    CafeDetailsComponent,
+    ItemDetailsComponent,
+    AllCafesComponent
   ],
   imports: [
     CommonModule,

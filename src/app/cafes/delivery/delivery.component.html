@@ -2,7 +2,6 @@
 <app-cafe-sidebar></app-cafe-sidebar>
 
 <div class="br-mainpanel">
-  <main>
   <div class="br-pageheader pd-y-15 pd-l-20">
     <nav class="breadcrumb pd-0 mg-0 tx-12">
       <a class="breadcrumb-item" href="index.html">Bracket</a>
@@ -17,68 +16,65 @@
     <div class="br-section-wrapper">
       <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Basic Responsive DataTable</h6>
       <p class="mg-b-25 mg-lg-b-50">Searching, ordering and paging goodness will be immediately added to the table, as shown in this example.</p>
-
-
-
-      
+     
       <div class="table-wrapper">
-        <div id="datatable1_filter" class="dataTables_filter"><label><input type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Start searching " aria-controls="datatable1"></label></div>
+        <div id="datatable1_filter" class="dataTables_filter"><label><input type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Start searching for a hero by id or name or country " aria-controls="datatable1"></label></div>
         <table id="datatable1" class="table display responsive nowrap">
           <thead>
             <tr>
-              <th class="wd-15p">Delivery name</th>
-              <th class="wd-20p">password</th>
-              <th class="wd-15p">email</th>
-              <th class="wd-20p">Age</th>
-               <th class="wd-20p">His IMG</th>
-
+              <th class="wd-15p">First name</th>
+              <th class="wd-15p">Last name</th>
+              <th class="wd-20p">phone</th>
+              <th class="wd-15p"> email</th>
+              <th class="wd-10p">city</th>
+              <th class="wd-25p">Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of cafeservice.delevirydata | filter:searchText  ">
-              <td>{{item.userName}}</td>
-              <td>{{item.password}}</td>
+            <tr *ngFor="let item of cafe.delevirydata  | filter:searchText ">
+              <td>{{item.firstName}}</td>
+              <td>{{item.lastName}}</td>
+              <td>{{item.phonNumber}}</td>
               <td>{{item.email}}</td>
-              <td>{{item.age}}</td>
-              <td>{{item.img}}</td>
-
+              <td>{{item.city}}</td>
               <td>
-           
-
-         <button  (click)="opendialogedit(item.userId)" style="color: brown;" class="btn btn-danger mx-3" >Details</button> 
-        </td>
+                <button (click)="opendialogedit(item.userId)" style="color: brown;" class="btn btn-info">Ditials</button>                       
+              </td>
             </tr>
            
+         
            
-        
+           
           </tbody>
         </table>
+        <div class="col-md-4 text-right">
+          <!-- <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button> -->
+      </div>
       </div><!-- table-wrapper -->
          
     
           
         </div><!-- br-section-wrapper -->
       </div>
-    </main>
-      </div>
+
+
+    </div>
 
 
     
 
-        
-
 <script> 
 $('#datatable1').DataTable({
-  responsive: true,
-  language: {
-    searchPlaceholder: 'Search...',
-    sSearch: '',
-    lengthMenu: 'MENU items/page',
-  }
+responsive: true,
+language: {
+searchPlaceholder: 'Search...',
+sSearch: '',
+lengthMenu: '_MENU_ items/page',
+}
 });
 </script>
 
-    <script src="../../../assets/assets/lib/jquery/jquery.js"></script>
+<script src="../../../assets/assets/lib/jquery/jquery.js"></script>
 <script src="../../../assets/assets/lib/popper.js/popper.js"></script>
 <script src="../../../assets/assets/lib/bootstrap/bootstrap.js"></script>
 <script src="../../../assets/assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
@@ -96,55 +92,55 @@ $('#datatable1').DataTable({
 <script src="../../../assets/assets/js/ResizeSensor.js"></script>
 <script src="../../../assets/assets/js/dashboard.js"></script>
 <script>
-  $(function(){
-    'use strict'
+$(function(){
+'use strict'
 
-    // FOR DEMO ONLY
-    // menu collapsed by default during first page load or refresh with screen
-    // having a size between 992px and 1299px. This is intended on this page only
-    // for better viewing of widgets demo.
-    $(window).resize(function(){
-      minimizeMenu();
-    });
+// FOR DEMO ONLY
+// menu collapsed by default during first page load or refresh with screen
+// having a size between 992px and 1299px. This is intended on this page only
+// for better viewing of widgets demo.
+$(window).resize(function(){
+  minimizeMenu();
+});
 
-    minimizeMenu();
+minimizeMenu();
 
-    function minimizeMenu() {
-      if(window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
-        // show only the icons and hide left menu label by default
-        $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
-        $('body').addClass('collapsed-menu');
-        $('.show-sub + .br-menu-sub').slideUp();
-      } else if(window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
-        $('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
-        $('body').removeClass('collapsed-menu');
-        $('.show-sub + .br-menu-sub').slideDown();
-      }
-    }
-  });
+function minimizeMenu() {
+  if(window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
+    // show only the icons and hide left menu label by default
+    $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+    $('body').addClass('collapsed-menu');
+    $('.show-sub + .br-menu-sub').slideUp();
+  } else if(window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
+    $('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
+    $('body').removeClass('collapsed-menu');
+    $('.show-sub + .br-menu-sub').slideDown();
+  }
+}
+});
 </script>
 
-    <script>
-      $(function(){
-        'use strict';
+<script>
+  $(function(){
+    'use strict';
 
-        $('#datatable1').DataTable({
-          responsive: true,
-          language: {
-            searchPlaceholder: 'Search...',
-            sSearch: '',
-            lengthMenu: 'MENU items/page',
-          }
-        });
+    $('#datatable1').DataTable({
+      responsive: true,
+      language: {
+        searchPlaceholder: 'Search...',
+        sSearch: '',
+        lengthMenu: '_MENU_ items/page',
+      }
+    });
 
-        $('#datatable2').DataTable({
-          bLengthChange: false,
-          searching: false,
-          responsive: true
-        });
+    $('#datatable2').DataTable({
+      bLengthChange: false,
+      searching: false,
+      responsive: true
+    });
 
-        // Select2
-        $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
+    // Select2
+    $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
 
-      });
-    </script>
+  });
+</script>

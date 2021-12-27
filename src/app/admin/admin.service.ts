@@ -54,61 +54,8 @@ testmonial:any[]=[];
 
 
 
-  // uploadAttachment(file:FormData){
-    
-  //   const headerDict = {
-  //   'Content-Type': 'application/json',
-  //   'Accept': 'application/json'
-  //   }
-  //   const requestOptions = {
-  //   headers: new HttpHeaders(headerDict),
-  //   };
-  //   //debugger
-  //   this.http.post("https://localhost:44376/api/Users/upload",file).subscribe((data: any) => {
-  //   this.display_image=data.image;
-  //   //debugger
-  //   console.log(this.display_image)
-  //   if(data){
-  //   console.log(data);}
-  //   }, err => {
-  //   })
-  //   }
-    uploadimage(form:FormData)
-    {
-    const headerDict = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-      }
-      const requestOptions = {
-      headers: new HttpHeaders(headerDict),
-      };
-      //debugger
-      this.http.post("https://localhost:44376/api/Users/upload",form).subscribe((data: any) => {
-      this.display_image=data.image;
-      //debugger
-      if(data){
-      console.log(data);}
-      }, err => {
-      })
-      }
+ 
   
-  
-    //   const headerDict = {
-    //     'Content-Type': 'application/json',
-    //     'Accept': 'application/json'
-    //     }
-    //     const requestOptions = {
-    //     headers: new HttpHeaders(headerDict),
-    //     };
-        
-    //     this.http.post("https://localhost:44376/api/Users/upload",form,re).subscribe((data:string|any) => {
-    //     this.display_image=data.image;
-    //     console.log(this.display_image)
-        
-    //     if(data){
-    //     console.log(this.display_image=data.Img);}
-    //     })
-    // }
     
 
 
@@ -187,7 +134,7 @@ console.log(this.salesdata)})
 
   
 
-  getdelivery(roleid:number=3)
+  getdelivery(roleid:number=4)
   {
 
    return this.http.get<any>('https://localhost:44376/api/Users/GetAllUsers/'+roleid).subscribe((res:any)=>{this.deliverdata=res})

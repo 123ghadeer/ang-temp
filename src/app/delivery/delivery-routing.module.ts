@@ -10,7 +10,7 @@ const routes: Routes = [
      
   },
   {
-    path:'dasboord',component:DeliveryBodyComponent
+    path:'dashboord',component:DeliveryBodyComponent
      
   },
   {

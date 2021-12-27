@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   @ViewChild('callAPIDialog') callAPIDialog!: TemplateRef<any>;
   @ViewChild('callCreateDialog') callCreateDialog!:TemplateRef<any>;
 
+  public response= {dbPath: ''};
 
   selectedFile:string="";
 
@@ -78,6 +79,8 @@ export class ProfileComponent implements OnInit {
 updateTrainer(data:any)
 {
   console.log(data)
+  data.img = this.response.dbPath;
+  console.log(data.img);
   this.cafe.updateCafeProfile(data);
 this.router.navigate(["cafe/dashboard"])
 }
@@ -85,9 +88,14 @@ this.router.navigate(["cafe/dashboard"])
 
 
 
+public uploadFinished = (event:any) => {
+  this.response = event;
+}
 
-
-
+public createImgPath = (serverPath: string) => {
+  console.log(serverPath)
+  return `https://localhost:44376/${serverPath}`;
+}
 
 
 

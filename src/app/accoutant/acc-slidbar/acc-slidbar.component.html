@@ -40,16 +40,11 @@
             <span class="menu-item-label">Manage-Sales</span>
           </div><!-- menu-item -->
         </a><!-- br-menu-link -->
-        <a routerLink="/account/customer" class="br-menu-link">
-          <div class="br-menu-item">
-            <i class="menu-item-icon icon ion-ios-book-outline tx-22"></i>
-            <span class="menu-item-label">Layouts</span>
-          </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
+        
         <a  class="br-menu-link">
           <div class="br-menu-item">
-            <i class="menu-item-icon icon ion-ios-list-outline tx-22"></i>
-            <span class="menu-item-label">Logout</span>
+            <i (click)="logout()" class="menu-item-icon icon ion-ios-list-outline tx-22"></i>
+            <span class="menu-item-label" style="color: white;">Logout</span>
           </div><!-- menu-item -->
         </a><!-- br-menu-link -->
       </div><!-- br-sideleft-menu -->
