@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { CartItem } from "../../models/cart";
@@ -7,9 +8,18 @@ import { CartItem } from "../../models/cart";
 })
 export class CartService {
 
-  private cartSubject$ = new BehaviorSubject<CartItem[]>([]);
-  constructor() {
 
+
+  private cartSubject$ = new BehaviorSubject<CartItem[]>([]);
+  constructor(private http: HttpClient) {
+
+  }
+
+  createOrder(orderData: any, user: any) {
+    return this.http.post("", {
+      orderData,
+      user
+    })
   }
 
   getCart(): CartItem[] {
@@ -61,5 +71,27 @@ export class CartService {
   private setCartRepo(cart: CartItem[]) {
     this.cartSubject$.next(cart);
     localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  checkout() {
+    const cart = Object.assign({}, this.getCart());
+    if (cart.length === 0) {
+      return null;
+    }
+    const totalAmount: any = cart.reduce((c1, c2) => {
+      return c1.totalPrice + c2.totalPrice as any
+    });
+    const checkoutData = {
+      totalAmount,
+      totalItems: cart.length,
+    }
+    this.clearCart()
+    return checkoutData;
+  }
+
+
+  clearCart() {
+    localStorage.setItem("cart", JSON.stringify([]));
+    this.cartSubject$.next([]);
   }
 }

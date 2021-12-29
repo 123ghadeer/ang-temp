@@ -1,0 +1,24 @@
+[
+  {
+    "coffe": {
+      "name": "Starbuks"
+    },
+    "itemId": 1,
+    "quantity": 1,
+    "imageUrl": "https://media.istockphoto.com/photos/searching-browsing-data-information-network-concept-businessman-using-picture-id1264839512?b=1&k=20&m=1264839512&s=170667a&w=0&h=QbzcI671w7ELHtwSMX2VqWOKRIfbq8xiDsBfkd0f9wo=",
+    "name": "Americana Coffe",
+    "price": 10,
+    "totalPrice": 10
+  },
+  {
+    "coffe": {
+      "name": "Almond"
+    },
+    "itemId": 2,
+    "quantity": 1,
+    "imageUrl": "https://media.istockphoto.com/photos/young-man-shopping-online-picture-id1305615921?b=1&k=20&m=1305615921&s=170667a&w=0&h=nQ1qcUP8MBo5OkghDXZb_nDKgJmxjK7VkAJ4yb0n4-M=",
+    "name": "Nescafe",
+    "price": 5,
+    "totalPrice": 5
+  }
+]
